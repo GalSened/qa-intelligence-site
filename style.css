@@ -43,7 +43,7 @@ header {
     display: block;
 }
 
-nav {
+nav.nav-links {
     display: flex;
     align-items: center;
     gap: 25px;
@@ -75,17 +75,6 @@ nav a:hover {
 
 nav a:hover::after {
     width: 100%;
-}
-
-
-#lang-toggle {
-    background: var(--brand-color);
-    color: #000;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
 }
 
 .hero {
@@ -195,6 +184,7 @@ nav a:hover::after {
     border: 1px solid rgba(0,240,208,0.1);
 }
 
+/* Try It Now */
 .try-it {
     text-align: center;
 }
@@ -247,20 +237,145 @@ nav a:hover::after {
     box-shadow: 0 0 10px rgba(0,240,208,0.3);
 }
 
-.code-terminal {
+.code-wrapper {
     width: 100%;
-    background: #111;
-    color: #0ff;
-    font-family: monospace;
-    font-size: 0.9rem;
-    padding: 15px;
+    max-width: 600px;
+    margin-top: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,240,208,0.3);
-    margin-top: 15px;
+    background: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0,240,208,0.2);
+    overflow: hidden;
     display: none;
-    white-space: pre-line;
 }
 
+.code-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #2d2d2d;
+    padding: 6px 10px;
+    position: relative;
+}
+
+.code-header .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.code-header .red { background: #ff5f56; }
+.code-header .yellow { background: #ffbd2e; }
+.code-header .green { background: #27c93f; }
+
+.copy-btn {
+    position: absolute;
+    right: 10px;
+    background: var(--brand-color);
+    color: #000;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.copy-btn:hover {
+    box-shadow: 0 0 8px var(--brand-color);
+}
+
+pre {
+    margin: 0;
+    padding: 15px;
+    overflow-x: auto;
+}
+
+.run-tests-btn {
+    background: #333;
+    color: var(--brand-color);
+    padding: 10px 20px;
+    border: 1px solid var(--brand-color);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.run-tests-btn:hover {
+    background: var(--brand-color);
+    color: #000;
+}
+
+.run-results {
+    margin-top: 10px;
+    font-family: monospace;
+    text-align: left;
+    width: 100%;
+    background: #111;
+    color: #f5f5f5;
+    border-radius: 6px;
+    padding: 10px;
+    display: none;
+}
+
+/* Pricing Plans */
+.pricing-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0,240,208,0.15);
+    box-shadow: 0 0 10px rgba(0,240,208,0.1);
+    border-radius: 12px;
+    padding: 20px;
+    width: 260px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--brand-color);
+    box-shadow: 0 0 20px rgba(0,240,208,0.4);
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,240,208,0.4);
+}
+
+.pricing-card .price {
+    font-size: 2rem;
+    color: var(--brand-color);
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.pricing-card li {
+    margin-bottom: 6px;
+}
+
+.pricing-btn {
+    background: var(--brand-color);
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.pricing-btn:hover {
+    box-shadow: 0 0 10px var(--brand-color);
+}
+
+/* FAQ */
 .faq {
     max-width: 700px;
     margin: auto;
@@ -316,6 +431,7 @@ nav a:hover::after {
     transform: rotate(180deg);
 }
 
+/* Contact */
 .contact-form {
     max-width: 500px;
     margin: auto;
@@ -364,70 +480,69 @@ footer {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-body[dir="rtl"] {
-    text-align: right;
-}
 
-body[dir="rtl"] .hero h1,
-body[dir="rtl"] .hero p,
-body[dir="rtl"] .text-side h2,
-body[dir="rtl"] .text-side p,
-body[dir="rtl"] .contact-form {
-    text-align: right;
-}
-
-
-
-/* IDE-like Code Container */
-.code-wrapper {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-    border-radius: 8px;
-    background: #1e1e1e;
-    box-shadow: 0 0 20px rgba(0,240,208,0.2);
-    overflow: hidden;
+/* Hamburger & Mobile */
+.hamburger {
     display: none;
-}
-
-.code-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background: #2d2d2d;
-    padding: 6px 10px;
-    position: relative;
-}
-
-.code-header .dot {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    margin-right: 6px;
-}
-
-.code-header .red { background: #ff5f56; }
-.code-header .yellow { background: #ffbd2e; }
-.code-header .green { background: #27c93f; }
-
-.copy-btn {
-    position: absolute;
-    right: 10px;
-    background: var(--brand-color);
-    color: #000;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 4px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 20px;
     cursor: pointer;
-    font-size: 0.8rem;
 }
 
-.copy-btn:hover {
-    box-shadow: 0 0 8px var(--brand-color);
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--brand-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }
 
-pre {
-    margin: 0;
-    padding: 15px;
-    overflow-x: auto;
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #111;
+    width: 220px;
+    flex-direction: column;
+    box-shadow: 0 0 15px rgba(0,240,208,0.3);
+    border-left: 1px solid rgba(0,240,208,0.1);
+    border-bottom: 1px solid rgba(0,240,208,0.1);
+    z-index: 999;
+}
+
+.mobile-menu a {
+    color: #f5f5f5;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.mobile-menu a:hover {
+    background: rgba(0,240,208,0.1);
+    color: var(--brand-color);
+}
+
+@media (max-width: 900px) {
+    nav.nav-links { display: none; }
+    .hamburger { display: flex; }
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+}
+
+.mobile-menu.show {
+    display: flex;
 }
