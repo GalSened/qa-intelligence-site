@@ -71,6 +71,9 @@ sendBtn.addEventListener('click', () => {
 // ===============================
 // Try It Now – Typewriter + Pytest Code Simulation
 // ===============================
+
+
+// Try It Now – Typewriter + Pytest Code Simulation + Highlight
 const generateBtn = document.getElementById('generateBtn');
 const liveTerminal = document.getElementById('liveTerminal');
 const codeTerminal = document.getElementById('codeTerminal');
@@ -97,10 +100,9 @@ generateBtn.addEventListener('click', () => {
         return;
     }
 
-    // Reset UI
     liveTerminal.innerHTML = "";
-    codeTerminal.style.display = "none";
     codeTerminal.textContent = "";
+    codeTerminal.parentElement.style.display = "none";
     progressBar.style.width = "0%";
 
     let progress = 0;
@@ -140,17 +142,15 @@ def test_${testName}():
     assert response.status_code == 200
     assert "success" in response.json()`;
 
-    codeTerminal.style.display = "block";
-    let i = 0;
-    const interval = setInterval(() => {
-        if (i < code.length) {
-            codeTerminal.textContent += code.charAt(i);
-            i++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 15);
+    codeTerminal.textContent = code;
+    codeTerminal.parentElement.style.display = "block";
+
+    // Syntax Highlighting
+    setTimeout(() => {
+        hljs.highlightElement(codeTerminal);
+    }, 50);
 }
+
 
 
 // ===============================
