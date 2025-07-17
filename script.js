@@ -64,4 +64,42 @@ function typeWriter(text, element, delay = 50, callback) {
             liveTerminal.scrollTop = liveTerminal.scrollHeight;
         } else {
             clearInterval(interval);
-            if (callback) callback
+            if (callback) callback();
+        }
+    }, delay);
+}
+
+generateBtn.addEventListener('click', () => {
+    const prompt = document.getElementById('promptInput').value.trim();
+    if (!prompt) {
+        liveTerminal.innerHTML = "<span style='color:red'>Please enter a prompt.</span>";
+        return;
+    }
+
+    liveTerminal.innerHTML = "";
+    progressBar.style.width = "0%";
+
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        if (progress < 100) {
+            progress += 2;
+            progressBar.style.width = progress + "%";
+        }
+    }, 80);
+
+    typeWriter(`System: ✅ Creating Pytest code...\n`, liveTerminal, 40, () => {
+        setTimeout(() => {
+            typeWriter(`System: 🔍 Risk Analysis in progress...\n`, liveTerminal, 40, () => {
+                setTimeout(() => {
+                    typeWriter(`System: 📊 Generating Excel report...\n`, liveTerminal, 40, () => {
+                        setTimeout(() => {
+                            typeWriter(`System: ✅ Test generated: test_${prompt.replace(/\s+/g, "_").toLowerCase()}.py`, liveTerminal, 40);
+                            clearInterval(progressInterval);
+                            progressBar.style.width = "100%";
+                        }, 800);
+                    });
+                }, 800);
+            });
+        }, 800);
+    });
+});
