@@ -149,11 +149,18 @@ h2 {
     font-family: monospace;
     font-size: 0.9rem;
     color: #0f0;
+    white-space: pre-line;
 }
 
-.user {color: #0ff;}
-.system {color: #0f0;}
-.typing {animation: blink 1.5s infinite alternate;}
+.user {
+    color: #0ff;
+}
+.system {
+    color: #0f0;
+}
+.typing {
+    animation: blink 1.5s infinite alternate;
+}
 
 .center-text {
     text-align: center;
@@ -207,6 +214,11 @@ h2 {
     font-size: 1rem;
 }
 
+.try-container input:focus {
+    outline: none;
+    box-shadow: 0 0 8px var(--brand-color);
+}
+
 .try-container button {
     background: var(--brand-color);
     color: #000;
@@ -229,12 +241,13 @@ h2 {
     background: #222;
     border-radius: 4px;
     overflow: hidden;
+    margin-top: 10px;
 }
 
 .progress {
     height: 100%;
     width: 0;
-    background: var(--brand-color);
+    background: linear-gradient(90deg, var(--brand-color), #00b8a3);
     transition: width 0.3s linear;
 }
 
@@ -250,6 +263,7 @@ h2 {
     height: 140px;
     overflow-y: auto;
     box-shadow: 0 0 10px rgba(0,240,208,0.3);
+    white-space: pre-line;
 }
 
 /* --- Contact Form --- */
@@ -315,11 +329,21 @@ footer {
 }
 
 @keyframes fadeSlide {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes blink {
-    from {opacity: 0.4;}
-    to {opacity: 1;}
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
 }
