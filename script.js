@@ -49,3 +49,19 @@ sendBtn.addEventListener('click', () => {
         }, 3000);
     }, 2000);
 });
+
+// Try It Now - Typewriter Simulation with Progress
+const generateBtn = document.getElementById('generateBtn');
+const liveTerminal = document.getElementById('liveTerminal');
+const progressBar = document.getElementById('progress');
+
+function typeWriter(text, element, delay = 50, callback) {
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            liveTerminal.scrollTop = liveTerminal.scrollHeight;
+        } else {
+            clearInterval(interval);
+            if (callback) callback
