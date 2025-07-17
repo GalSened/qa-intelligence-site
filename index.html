@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>QA INTELLIGENCE – Premium SaaS Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QA INTELLIGENCE – Full SaaS Demo</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css"
+  />
   <script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
-  <img src="logo.png" alt="QA Intelligence" class="logo"/>
+  <img src="logo.png" alt="QA Intelligence" class="logo" />
   <nav class="nav-links">
     <a href="#home" class="active">Home</a>
     <a href="#features">Features</a>
@@ -31,13 +34,40 @@
   </div>
 </header>
 
-<section id="home" class="hero">
+<!-- Hero -->
+<section id="home" class="hero fade-in">
   <h1>QA INTELLIGENCE</h1>
   <p>Smart, Self‑Healing Automated Testing—Cutting‑Edge SaaS Experience.</p>
-  <button class="cta-btn">Get Started →</button>
+  <button class="cta-btn" id="getStartedBtn">Get Started →</button>
 </section>
 
-<section id="try-it" class="try-it gradient-section">
+<!-- Features -->
+<section id="features" class="gradient-section fade-in">
+  <h2>Main Features</h2>
+  <div class="features">
+    <div class="feature-card"><div class="feature-icon">🤖</div><h3>Smart Test Generation</h3><p>Generate tests automatically from specifications and code.</p></div>
+    <div class="feature-card"><div class="feature-icon">⚡</div><h3>Parallel Test Runs</h3><p>Execute tests in parallel with prioritized logic.</p></div>
+    <div class="feature-card"><div class="feature-icon">🛠</div><h3>Self‑Healing Tests</h3><p>AI auto-fixes flaky or broken tests in real-time.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔗</div><h3>Source Control Integration</h3><p>Seamless GitHub, GitLab, Bitbucket support.</p></div>
+    <div class="feature-card"><div class="feature-icon">📊</div><h3>Dashboard & Reporting</h3><p>Live charts, export options, and deep insights.</p></div>
+    <div class="feature-card"><div class="feature-icon">🧠</div><h3>Risk‑Based Testing</h3><p>Focus testing on high-risk and high-impact areas.</p></div>
+  </div>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboard" class="side-layout gradient-section fade-in">
+  <div class="text-side"><h2>Dashboard & Reports</h2><p>Interactive charts, Dark Mode toggle, and Excel export per module.</p></div>
+  <div class="image-side"><img src="mockup-dashboard.png" alt="Dashboard mockup" /></div>
+</section>
+
+<!-- Workflow -->
+<section id="automation" class="side-layout gradient-section fade-in">
+  <div class="text-side"><h2>Automated Workflow</h2><p>From prompt to code generation, optimization, and execution – fully automated.</p></div>
+  <div class="image-side"><img src="mockup-automation.png" alt="Workflow mockup" /></div>
+</section>
+
+<!-- Generator -->
+<section id="try-it" class="try-it gradient-section fade-in">
   <h2>Code Generator with AI Sidebar</h2>
   <div class="try-ai-container">
     <div class="main-column">
@@ -51,8 +81,7 @@
       <div id="liveTerminal" class="live-terminal"></div>
       <div id="aiThinking" class="ai-thinking">🤖 AI is thinking...</div>
       <div id="codeWrapper" class="code-wrapper">
-        <div class="code-header">
-          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <div class="code-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
           <button id="copyBtn" class="copy-btn">Copy</button>
         </div>
         <pre><code id="codeTerminal" class="language-python"></code></pre>
@@ -61,7 +90,7 @@
       <div id="runResults" class="run-results"></div>
       <div id="optimizationSuggestions" class="optimization-suggestions"></div>
     </div>
-    <div class="sidebar">
+    <div class="sidebar fade-in">
       <h3>AI Chat</h3>
       <div id="chatLog" class="chat-log"></div>
       <input id="chatInput" placeholder="Ask AI..." />
@@ -70,7 +99,28 @@
   </div>
 </section>
 
-<section id="contact" class="gradient-section">
+<!-- Pricing -->
+<section id="pricing" class="gradient-section fade-in">
+  <h2>Pricing Plans</h2>
+  <div class="pricing-container">
+    <div class="pricing-card"><h3>Basic</h3><p class="price">$29/mo</p><ul><li>✔ Basic Test Generation</li><li>✔ Dashboard Access</li><li>✖ No Self‑Healing</li></ul><button class="pricing-btn">Start Basic</button></div>
+    <div class="pricing-card popular"><h3>Pro</h3><p class="price">$79/mo</p><ul><li>✔ Smart Gen</li><li>✔ Full Reporting</li><li>✔ Parallel Runs</li></ul><button class="pricing-btn">Choose Pro</button></div>
+    <div class="pricing-card"><h3>Enterprise</h3><p class="price">$199/mo</p><ul><li>✔ Full AI Suite</li><li>✔ Self‑Healing</li><li>✔ Priority Support</li></ul><button class="pricing-btn">Contact Sales</button></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="gradient-section fade-in">
+  <h2>FAQ</h2>
+  <div class="faq">
+    <div class="faq-card"><div class="faq-header"><span>What is QA INTELLIGENCE?</span><span class="faq-icon">+</span></div><div class="faq-body">AI-powered testing platform for automated test generation and execution.</div></div>
+    <div class="faq-card"><div class="faq-header"><span>Did you integrate with Git providers?</span><span class="faq-icon">+</span></div><div class="faq-body">Yes – GitHub, GitLab, and Bitbucket are supported.</div></div>
+    <div class="faq-card"><div class="faq-header"><span>Does it self-heal tests?</span><span class="faq-icon">+</span></div><div class="faq-body">Absolutely – AI auto-fixes failing tests in real-time.</div></div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="gradient-section fade-in">
   <h2>Contact Us</h2>
   <div class="contact-form">
     <input id="name" placeholder="Full Name" />
@@ -81,4 +131,7 @@
   </div>
 </section>
 
-<footer>© 2025 QA INTELLIGENCE</footer>
+<footer class="fade-in">© 2025 QA INTELLIGENCE</footer>
+
+</body>
+</html>
