@@ -14,7 +14,7 @@ body {
     line-height: 1.6;
 }
 
-h2 {
+h1, h2 {
     text-align: center;
     color: var(--brand-color);
     margin-bottom: 20px;
@@ -119,6 +119,7 @@ nav a:hover::after {
     box-shadow: 0 0 20px var(--brand-glow);
 }
 
+/* Features */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -335,6 +336,58 @@ nav a:hover::after {
     padding: 10px;
     display: none;
 }
+
+/* Pricing */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    width: 220px;
+    box-shadow: 0 0 15px rgba(0,240,208,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--brand-glow);
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--brand-color);
+    box-shadow: 0 0 30px var(--brand-glow);
+}
+
+.price {
+    color: var(--brand-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.pricing-btn {
+    background: var(--brand-color);
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.pricing-btn:hover {
+    box-shadow: 0 0 10px var(--brand-glow);
+}
+
 /* FAQ – Glassmorphism */
 .faq {
     max-width: 700px;
@@ -442,4 +495,10 @@ nav a:hover::after {
     font-size: 0.9rem;
 }
 
-/* Pricing, FAQ, Contact – remain same glassmorphism */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid var(--glass-border);
+}
