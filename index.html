@@ -6,7 +6,7 @@
     <title>QA INTELLIGENCE</title>
     <style>
         :root {
-            --brand-color: #00f0d0; /* צבע מדויק של הלוגו */
+            --brand-color: #00f0d0;
         }
         body {
             margin: 0;
@@ -14,6 +14,7 @@
             background-color: #0e0e0e;
             color: #f5f5f5;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         header {
             background: linear-gradient(90deg, #1e1e1e, #111);
@@ -39,6 +40,15 @@
         nav a:hover {
             color: var(--brand-color);
         }
+        #lang-toggle {
+            background: var(--brand-color);
+            color: #000;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
         section {
             padding: 60px 20px;
             max-width: 1100px;
@@ -46,9 +56,9 @@
         }
         .hero {
             text-align: center;
-            padding: 100px 20px;
-            background: radial-gradient(circle at top, #111, #000);
-            animation: fadeIn 1.5s ease-in-out;
+            padding: 120px 20px;
+            background: linear-gradient(180deg, rgba(0,240,208,0.05), #000);
+            animation: parallax 8s infinite alternate ease-in-out;
         }
         .hero h2 {
             font-size: 2.8rem;
@@ -84,11 +94,16 @@
             border-radius: 12px;
             border: 1px solid #333;
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .feature-card:hover {
-            transform: translateY(-5px);
             box-shadow: 0 0 20px rgba(0,240,208,0.5);
         }
         .feature-icon {
@@ -128,9 +143,9 @@
             font-size: 0.9rem;
             color: #777;
         }
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(10px);}
-            to {opacity: 1; transform: translateY(0);}
+        @keyframes parallax {
+            0% {background-position: 0 0;}
+            100% {background-position: 0 30px;}
         }
     </style>
 </head>
@@ -139,74 +154,107 @@
 <header>
     <img src="logo.png" alt="QA Intelligence Logo">
     <nav>
-        <a href="#home">בית</a>
-        <a href="#features">יכולות</a>
-        <a href="#about">מי אנחנו</a>
-        <a href="#contact">צור קשר</a>
+        <a href="#home" data-he="בית" data-en="Home">בית</a>
+        <a href="#features" data-he="יכולות" data-en="Features">יכולות</a>
+        <a href="#about" data-he="מי אנחנו" data-en="About">מי אנחנו</a>
+        <a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a>
     </nav>
+    <button id="lang-toggle">EN</button>
 </header>
 
 <section class="hero" id="home">
-    <h2>מערכת ה־AI המתקדמת ביותר לאוטומציית בדיקות</h2>
-    <p>יצירת טסטים חכמה, ניתוח קוד בזמן אמת, אינטגרציה עם Jira, GitLab ו־Excel – הכל במקום אחד.</p>
-    <button class="cta-btn">נסה עכשיו</button>
+    <h2 data-he="מערכת ה־AI המתקדמת ביותר לאוטומציית בדיקות" 
+        data-en="The Most Advanced AI System for Test Automation">
+        מערכת ה־AI המתקדמת ביותר לאוטומציית בדיקות
+    </h2>
+    <p data-he="יצירת טסטים חכמה, ניתוח קוד בזמן אמת, אינטגרציה עם Jira, GitLab ו־Excel – הכל במקום אחד." 
+       data-en="Smart test generation, real-time code analysis, Jira, GitLab & Excel integration – all in one.">
+        יצירת טסטים חכמה, ניתוח קוד בזמן אמת, אינטגרציה עם Jira, GitLab ו־Excel – הכל במקום אחד.
+    </p>
+    <button class="cta-btn" data-he="נסה עכשיו" data-en="Try Now">נסה עכשיו</button>
 </section>
 
 <section id="features">
-    <h2>יכולות עיקריות</h2>
+    <h2 data-he="יכולות עיקריות" data-en="Main Features">יכולות עיקריות</h2>
     <div class="features">
         <div class="feature-card">
             <div class="feature-icon">🤖</div>
-            <h3>גנרציה חכמה של טסטים</h3>
-            <p>יצירת טסטים אוטומטית על בסיס קוד ומפרטים, עם ניתוח AI חכם.</p>
+            <h3 data-he="גנרציה חכמה של טסטים" data-en="Smart Test Generation">גנרציה חכמה של טסטים</h3>
+            <p data-he="יצירת טסטים אוטומטית על בסיס קוד ומפרטים, עם ניתוח AI חכם." 
+               data-en="Automatic test creation from code & specs with smart AI analysis.">
+               יצירת טסטים אוטומטית על בסיס קוד ומפרטים, עם ניתוח AI חכם.
+            </p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🔗</div>
-            <h3>אינטגרציה מלאה</h3>
-            <p>תמיכה ב־Jira, GitLab, Postman ו־Excel לניהול מלא של תהליכי QA.</p>
+            <h3 data-he="אינטגרציה מלאה" data-en="Full Integration">אינטגרציה מלאה</h3>
+            <p data-he="תמיכה ב־Jira, GitLab, Postman ו־Excel לניהול מלא של תהליכי QA." 
+               data-en="Support for Jira, GitLab, Postman & Excel for full QA process management.">
+               תמיכה ב־Jira, GitLab, Postman ו־Excel לניהול מלא של תהליכי QA.
+            </p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">📊</div>
-            <h3>דוחות חכמים</h3>
-            <p>Excel ודאשבורד מרהיב, כולל Dark Mode וגרפים בזמן אמת.</p>
+            <h3 data-he="דוחות חכמים" data-en="Smart Reports">דוחות חכמים</h3>
+            <p data-he="Excel ודאשבורד מרהיב, כולל Dark Mode וגרפים בזמן אמת." 
+               data-en="Excel & stunning dashboards with Dark Mode & real-time charts.">
+               Excel ודאשבורד מרהיב, כולל Dark Mode וגרפים בזמן אמת.
+            </p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🚀</div>
-            <h3>למידה עצמית</h3>
-            <p>שיפור מתמיד של הטסטים עם ניתוח פערים וזיהוי סיכונים.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>הרצה מקבילה חכמה</h3>
-            <p>הרצה מקבילה אוטומטית עם ניתוח סיכונים ודיווח חכם.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🛠</div>
-            <h3>תיקון אוטומטי של טסטים</h3>
-            <p>זיהוי ותיקון בדיקות שנכשלו באמצעות AI בזמן אמת.</p>
+            <h3 data-he="למידה עצמית" data-en="Self-learning">למידה עצמית</h3>
+            <p data-he="שיפור מתמיד של הטסטים עם ניתוח פערים וזיהוי סיכונים." 
+               data-en="Continuous test improvement with gap analysis & risk detection.">
+               שיפור מתמיד של הטסטים עם ניתוח פערים וזיהוי סיכונים.
+            </p>
         </div>
     </div>
 </section>
 
 <section id="about">
-    <h2>מי אנחנו</h2>
-    <p style="max-width:800px;margin:auto;text-align:center;">
-        QA INTELLIGENCE נולדה מתוך צורך אמיתי בשדרוג עולם הבדיקות האוטומטיות.  
-        המערכת משלבת AI מתקדם, עיצוב נקי ויכולת אינטגרציה עם הכלים המובילים בתעשייה – כדי להביא את תהליכי ה-QA שלך לרמה הבאה.
+    <h2 data-he="מי אנחנו" data-en="About Us">מי אנחנו</h2>
+    <p data-he="QA INTELLIGENCE נולדה מתוך צורך אמיתי בשדרוג עולם הבדיקות האוטומטיות..." 
+       data-en="QA INTELLIGENCE was born from a real need to upgrade automated testing...">
+       QA INTELLIGENCE נולדה מתוך צורך אמיתי בשדרוג עולם הבדיקות האוטומטיות...
     </p>
 </section>
 
 <section id="contact" class="contact">
-    <h2>צור קשר</h2>
-    <input type="text" placeholder="שם מלא">
-    <input type="email" placeholder="אימייל">
-    <textarea rows="4" placeholder="הודעה"></textarea><br>
-    <button>שלח</button>
+    <h2 data-he="צור קשר" data-en="Contact Us">צור קשר</h2>
+    <input type="text" placeholder="שם מלא" data-he="שם מלא" data-en="Full Name">
+    <input type="email" placeholder="אימייל" data-he="אימייל" data-en="Email">
+    <textarea rows="4" placeholder="הודעה" data-he="הודעה" data-en="Message"></textarea><br>
+    <button data-he="שלח" data-en="Send">שלח</button>
 </section>
 
 <footer>
     © 2025 QA INTELLIGENCE | כל הזכויות שמורות
 </footer>
+
+<script>
+    // אנימציות הופעת היכולות
+    const featureCards = document.querySelectorAll('.feature-card');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+    featureCards.forEach(card => observer.observe(card));
+
+    // מתג שפה
+    const langToggle = document.getElementById('lang-toggle');
+    langToggle.addEventListener('click', () => {
+        const isEnglish = langToggle.textContent === 'EN';
+        document.querySelectorAll('[data-he]').forEach(el => {
+            el.textContent = isEnglish ? el.dataset.en : el.dataset.he;
+        });
+        document.body.setAttribute('dir', isEnglish ? 'ltr' : 'rtl');
+        langToggle.textContent = isEnglish ? 'HE' : 'EN';
+    });
+</script>
 
 </body>
 </html>
