@@ -61,7 +61,7 @@ document.addEventListener('click', (e) => {
 });
 
 // ===============================
-// Try It Now – Typewriter + Pytest Code + Run Tests Simulation
+// Cutting Edge Code Generator
 // ===============================
 const generateBtn = document.getElementById('generateBtn');
 const liveTerminal = document.getElementById('liveTerminal');
@@ -71,8 +71,10 @@ const progressBar = document.getElementById('progress');
 const copyBtn = document.getElementById('copyBtn');
 const runTestsBtn = document.getElementById('runTestsBtn');
 const runResults = document.getElementById('runResults');
+const languageSelect = document.getElementById('languageSelect');
+const optimizationSuggestions = document.getElementById('optimizationSuggestions');
 
-function typeWriter(text, element, delay = 50, callback) {
+function typeWriter(text, element, delay = 40, callback) {
     let i = 0;
     element.innerHTML = "";
     const interval = setInterval(() => {
@@ -89,6 +91,7 @@ function typeWriter(text, element, delay = 50, callback) {
 
 generateBtn.addEventListener('click', () => {
     const prompt = document.getElementById('promptInput').value.trim();
+    const language = languageSelect.value;
     if (!prompt) {
         liveTerminal.innerHTML = "<span style='color:red'>Please enter a prompt.</span>";
         return;
@@ -98,6 +101,7 @@ generateBtn.addEventListener('click', () => {
     codeWrapper.style.display = "none";
     runResults.style.display = "none";
     codeTerminal.textContent = "";
+    optimizationSuggestions.textContent = "";
     progressBar.style.width = "0%";
 
     let progress = 0;
@@ -108,16 +112,16 @@ generateBtn.addEventListener('click', () => {
         }
     }, 80);
 
-    typeWriter(`System: ✅ Creating Pytest code...\n`, liveTerminal, 40, () => {
+    typeWriter(`System: ✅ Analyzing prompt...\n`, liveTerminal, 35, () => {
         setTimeout(() => {
-            typeWriter(liveTerminal.innerHTML + `System: 🔍 Risk Analysis in progress...\n`, liveTerminal, 40, () => {
+            typeWriter(liveTerminal.innerHTML + `System: 🔍 Selecting best practices for ${language.toUpperCase()}...\n`, liveTerminal, 35, () => {
                 setTimeout(() => {
-                    typeWriter(liveTerminal.innerHTML + `System: 📊 Generating Excel report...\n`, liveTerminal, 40, () => {
+                    typeWriter(liveTerminal.innerHTML + `System: ⚙️ Generating optimized, clean test code...\n`, liveTerminal, 35, () => {
                         setTimeout(() => {
-                            typeWriter(liveTerminal.innerHTML + `System: ✅ Test generated: test_${prompt.replace(/\s+/g, "_").toLowerCase()}.py`, liveTerminal, 40, () => {
+                            typeWriter(liveTerminal.innerHTML + `System: ✅ Code generation completed successfully.\n`, liveTerminal, 35, () => {
                                 clearInterval(progressInterval);
                                 progressBar.style.width = "100%";
-                                showPytestCode(prompt);
+                                generateSmartCode(language, prompt);
                             });
                         }, 800);
                     });
@@ -127,19 +131,108 @@ generateBtn.addEventListener('click', () => {
     });
 });
 
-function showPytestCode(prompt) {
+function generateSmartCode(language, prompt) {
     const testName = prompt.replace(/\s+/g, "_").toLowerCase();
-    const code =
+    let code = "";
+    let suggestions = [];
+
+    switch (language) {
+        case "python":
+            code =
 `import pytest
+import requests
 
+@pytest.mark.api
 def test_${testName}():
-    response = client.post("/api/${testName}", json={"param": "value"})
-    assert response.status_code == 200
-    assert "success" in response.json()`;
+    """
+    Test Case: Validate ${prompt}
+    Steps:
+    1. Send POST request with valid data.
+    2. Verify status code is 200.
+    3. Check response contains expected keys.
+    """
+    response = requests.post("https://api.example.com/${testName}", json={"param": "value"})
+    assert response.status_code == 200, f"Expected 200, got {response.status_code}"
+    json_data = response.json()
+    assert "success" in json_data, "Missing 'success' key in response"`;
+            suggestions = [
+                "✅ Consider mocking external APIs to reduce dependencies.",
+                "✅ Use fixtures to set up and tear down test data efficiently."
+            ];
+            break;
 
+        case "java":
+            code =
+`import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.net.http.*;
+
+public class Test${testName.charAt(0).toUpperCase() + testName.slice(1)} {
+    @Test
+    public void test${testName}() throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(new java.net.URI("https://api.example.com/${testName}"))
+            .POST(HttpRequest.BodyPublishers.ofString("{\\"param\\":\\"value\\"}"))
+            .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        assertEquals(200, response.statusCode(), "Expected 200 OK");
+        assertTrue(response.body().contains("success"), "Response should contain 'success'");
+    }
+}`;
+            suggestions = [
+                "✅ Reuse HttpClient instance for better performance.",
+                "✅ Add parameterized tests for multiple input scenarios."
+            ];
+            break;
+
+        case "javascript":
+            code =
+`const request = require('supertest');
+describe("${prompt}", () => {
+  it("should return success", async () => {
+    const res = await request("https://api.example.com")
+      .post("/${testName}")
+      .send({ param: "value" });
+    expect(res.status).toBe(200);
+    expect(res.body).toHaveProperty("success");
+  });
+});`;
+            suggestions = [
+                "✅ Use test data factories to avoid hardcoding values.",
+                "✅ Run tests in parallel with Jest's --maxWorkers option."
+            ];
+            break;
+
+        case "csharp":
+            code =
+`using NUnit.Framework;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+
+[TestFixture]
+public class Test${testName.charAt(0).toUpperCase() + testName.slice(1)} {
+    [Test]
+    public async Task Test${testName}() {
+        var client = new HttpClient();
+        var response = await client.PostAsync("https://api.example.com/${testName}",
+            new StringContent("{\\"param\\":\\"value\\"}", System.Text.Encoding.UTF8, "application/json"));
+        Assert.AreEqual(200, (int)response.StatusCode, "Expected 200 OK");
+        var json = JObject.Parse(await response.Content.ReadAsStringAsync());
+        Assert.IsTrue(json.ContainsKey("success"), "Response should contain 'success'");
+    }
+}`;
+            suggestions = [
+                "✅ Dispose of HttpClient properly or reuse singleton for performance.",
+                "✅ Use data-driven tests with TestCaseSource."
+            ];
+            break;
+    }
+
+    // Display code with typewriter effect
     codeTerminal.textContent = "";
     codeWrapper.style.display = "block";
-
     let i = 0;
     const interval = setInterval(() => {
         if (i < code.length) {
@@ -148,8 +241,14 @@ def test_${testName}():
         } else {
             clearInterval(interval);
             hljs.highlightElement(codeTerminal);
+            showOptimizationSuggestions(suggestions);
         }
-    }, 10);
+    }, 8);
+}
+
+function showOptimizationSuggestions(suggestions) {
+    optimizationSuggestions.innerHTML = "<strong>Optimization Suggestions:</strong><br>" +
+        suggestions.map(s => `• ${s}`).join("<br>");
 }
 
 // Copy Button
@@ -177,9 +276,9 @@ runTestsBtn.addEventListener('click', () => {
         }
     }, 1500);
 });
+
 // ===============================
-// Features Animation (appear on load)
-// ===============================
+// Features Animation (on load)
 window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.feature-card').forEach((card, index) => {
         setTimeout(() => {
