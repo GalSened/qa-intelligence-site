@@ -10,7 +10,6 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 
 // ===============================
 // Contact Us Form (Demo Simulation)
-// ===============================
 const sendBtn = document.getElementById('sendBtn');
 const statusMsg = document.getElementById('statusMsg');
 
