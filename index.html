@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QA INTELLIGENCE</title>
     <style>
+        :root {
+            --brand-color: #00f0d0; /* צבע מדויק של הלוגו */
+        }
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -24,7 +27,7 @@
             border-bottom: 1px solid #333;
         }
         header img {
-            height: 50px;
+            height: 55px;
         }
         nav a {
             color: #f5f5f5;
@@ -34,7 +37,7 @@
             transition: color 0.3s ease;
         }
         nav a:hover {
-            color: #00d1b2;
+            color: var(--brand-color);
         }
         section {
             padding: 60px 20px;
@@ -49,14 +52,14 @@
         }
         .hero h2 {
             font-size: 2.8rem;
-            color: #00d1b2;
+            color: var(--brand-color);
         }
         .hero p {
             font-size: 1.2rem;
             color: #ccc;
         }
         .cta-btn {
-            background-color: #00d1b2;
+            background-color: var(--brand-color);
             color: #000;
             padding: 12px 24px;
             border: none;
@@ -67,7 +70,7 @@
             transition: background 0.3s ease, transform 0.2s ease;
         }
         .cta-btn:hover {
-            background-color: #00bfa5;
+            background-color: #00dcbf;
             transform: scale(1.05);
         }
         .features {
@@ -86,12 +89,16 @@
         }
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0,209,178,0.5);
+            box-shadow: 0 0 20px rgba(0,240,208,0.5);
         }
         .feature-icon {
             font-size: 40px;
-            color: #00d1b2;
+            color: var(--brand-color);
             margin-bottom: 10px;
+        }
+        h2 {
+            color: var(--brand-color);
+            text-align: center;
         }
         .contact {
             text-align: center;
@@ -107,7 +114,7 @@
             color: #f5f5f5;
         }
         .contact button {
-            background: #00d1b2;
+            background: var(--brand-color);
             color: #000;
             padding: 12px 20px;
             border: none;
@@ -146,7 +153,7 @@
 </section>
 
 <section id="features">
-    <h2 style="color:#00d1b2;text-align:center;">יכולות עיקריות</h2>
+    <h2>יכולות עיקריות</h2>
     <div class="features">
         <div class="feature-card">
             <div class="feature-icon">🤖</div>
@@ -182,7 +189,7 @@
 </section>
 
 <section id="about">
-    <h2 style="color:#00d1b2;text-align:center;">מי אנחנו</h2>
+    <h2>מי אנחנו</h2>
     <p style="max-width:800px;margin:auto;text-align:center;">
         QA INTELLIGENCE נולדה מתוך צורך אמיתי בשדרוג עולם הבדיקות האוטומטיות.  
         המערכת משלבת AI מתקדם, עיצוב נקי ויכולת אינטגרציה עם הכלים המובילים בתעשייה – כדי להביא את תהליכי ה-QA שלך לרמה הבאה.
@@ -190,7 +197,7 @@
 </section>
 
 <section id="contact" class="contact">
-    <h2 style="color:#00d1b2;">צור קשר</h2>
+    <h2>צור קשר</h2>
     <input type="text" placeholder="שם מלא">
     <input type="email" placeholder="אימייל">
     <textarea rows="4" placeholder="הודעה"></textarea><br>
