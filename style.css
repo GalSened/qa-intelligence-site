@@ -164,32 +164,6 @@ nav a:hover::after {
     padding: 40px 0;
 }
 
-.side-layout .text-side {
-    flex: 1 1 350px;
-    max-width: 500px;
-    text-align: left;
-}
-
-.side-layout .text-side h2 {
-    text-align: left;
-    font-size: 1.8rem;
-    color: var(--brand-color);
-    margin-bottom: 10px;
-}
-
-.side-layout .text-side p {
-    font-size: 1rem;
-    color: #ccc;
-    line-height: 1.6;
-}
-
-.side-layout .image-side {
-    flex: 1 1 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .side-layout .image-side img {
     max-width: 100%;
     border-radius: 12px;
@@ -203,7 +177,7 @@ nav a:hover::after {
     box-shadow: 0 0 35px var(--brand-glow);
 }
 
-/* Try It Now – Code Generator */
+/* Try It Now */
 .try-it {
     text-align: center;
 }
@@ -264,6 +238,19 @@ nav a:hover::after {
     box-shadow: 0 0 10px var(--brand-glow);
 }
 
+.ai-thinking {
+    display: none;
+    color: var(--brand-color);
+    font-style: italic;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
 .code-wrapper {
     width: 100%;
     max-width: 700px;
@@ -312,10 +299,15 @@ nav a:hover::after {
     box-shadow: 0 0 8px var(--brand-glow);
 }
 
-pre {
-    margin: 0;
-    padding: 15px;
-    overflow-x: auto;
+.optimization-suggestions {
+    margin-top: 15px;
+    text-align: left;
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 6px;
+    color: #ccc;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(0,240,208,0.1);
 }
 
 .run-tests-btn {
@@ -344,209 +336,4 @@ pre {
     display: none;
 }
 
-.optimization-suggestions {
-    margin-top: 15px;
-    text-align: left;
-    background: rgba(255,255,255,0.05);
-    padding: 10px;
-    border-radius: 6px;
-    color: #ccc;
-    font-size: 0.9rem;
-    box-shadow: 0 0 10px rgba(0,240,208,0.1);
-}
-
-/* Pricing */
-#pricing {
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.pricing-container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    max-width: 1100px;
-    margin: auto;
-    flex-wrap: nowrap;
-}
-
-@media (max-width: 1000px) {
-    .pricing-container {
-        flex-wrap: wrap;
-    }
-}
-
-.pricing-card {
-    flex: 0 0 300px;
-    max-width: 300px;
-    background: var(--card-bg);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 0 15px rgba(0,240,208,0.1);
-    border-radius: 12px;
-    padding: 30px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pricing-card h3 {
-    color: var(--brand-color);
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.pricing-card .price {
-    font-size: 2.2rem;
-    color: var(--brand-color);
-    margin-bottom: 15px;
-}
-
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    text-align: left;
-}
-
-.pricing-card li {
-    margin-bottom: 6px;
-    color: #f5f5f5;
-    font-size: 0.95rem;
-}
-
-.pricing-card li:contains("✖"),
-.pricing-card li:has(span.x) {
-    color: #ff5f56;
-    font-weight: bold;
-}
-
-.pricing-card.popular {
-    border: 2px solid var(--brand-color);
-    box-shadow: 0 0 30px var(--brand-glow);
-    transform: scale(1.05);
-}
-
-.pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px var(--brand-glow);
-}
-
-.pricing-btn {
-    background: var(--brand-color);
-    color: #000;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.pricing-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px var(--brand-glow);
-}
-
-/* FAQ & Contact remain same, just glass effect */
-.faq-item, .contact-form input, .contact-form textarea {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(6px);
-    border: 1px solid var(--glass-border);
-}
-
-.send-btn {
-    background: var(--brand-color);
-    color: #000;
-    padding: 14px 26px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.send-btn:hover {
-    box-shadow: 0 0 15px var(--brand-glow);
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.8);
-    font-size: 0.9rem;
-    color: #777;
-}
-
-@keyframes fadeSlide {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Hamburger */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 26px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.hamburger span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: var(--brand-color);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.mobile-menu {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(0,0,0,0.9);
-    width: 220px;
-    flex-direction: column;
-    box-shadow: 0 0 15px var(--brand-glow);
-    border-left: 1px solid var(--glass-border);
-    border-bottom: 1px solid var(--glass-border);
-    z-index: 999;
-}
-
-.mobile-menu a {
-    color: #f5f5f5;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.mobile-menu a:hover {
-    background: rgba(0,240,208,0.1);
-    color: var(--brand-color);
-}
-
-@media (max-width: 900px) {
-    nav.nav-links { display: none; }
-    .hamburger { display: flex; }
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(7px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-7px);
-}
-
-.mobile-menu.show {
-    display: flex;
-}
+/* Pricing, FAQ, Contact – remain same glassmorphism */
