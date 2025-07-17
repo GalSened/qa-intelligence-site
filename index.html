@@ -102,12 +102,14 @@
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <div class="contact-form">
-        <input type="text" placeholder="Full Name">
-        <input type="email" placeholder="Email">
-        <textarea rows="4" placeholder="Message"></textarea><br>
-        <button class="send-btn">Send</button>
+        <input type="text" id="name" placeholder="Full Name" data-en="Full Name" data-he="שם מלא">
+        <input type="email" id="email" placeholder="Email" data-en="Email" data-he="אימייל">
+        <textarea id="message" rows="4" placeholder="Message" data-en="Message" data-he="הודעה"></textarea><br>
+        <button class="send-btn" id="sendBtn" data-en="Send" data-he="שלח">Send</button>
+        <p class="status" id="statusMsg"></p>
     </div>
 </section>
+
 
 <footer>
     © 2025 QA INTELLIGENCE | All Rights Reserved
