@@ -1,28 +1,15 @@
 // ===============================
-// Feature Cards Animation
+// FAQ Toggle
 // ===============================
-const featureCards = document.querySelectorAll('.feature-card');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.2 });
-featureCards.forEach(card => observer.observe(card));
-
-// ===============================
-// FAQ Toggle – Interactive Accordion
-// ===============================
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        faqItem.classList.toggle('active');
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
     });
 });
 
 // ===============================
-// Contact Form – Active Simulation (SaaS-like)
+// Contact Us Form (Demo Simulation)
 // ===============================
 const sendBtn = document.getElementById('sendBtn');
 const statusMsg = document.getElementById('statusMsg');
@@ -33,43 +20,49 @@ sendBtn.addEventListener('click', () => {
     const message = document.getElementById('message').value.trim();
 
     if (!name || !email || !message) {
-        statusMsg.style.color = "red";
         statusMsg.textContent = "Please fill all fields.";
-        return;
-    }
-
-    // Email Validation
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
-    if (!email.match(emailPattern)) {
         statusMsg.style.color = "red";
-        statusMsg.textContent = "Please enter a valid email.";
         return;
     }
 
-    sendBtn.textContent = "Sending...";
-    sendBtn.disabled = true;
-    statusMsg.style.color = "#ccc";
-    statusMsg.textContent = "Processing...";
+    statusMsg.textContent = "Sending...";
+    statusMsg.style.color = "var(--brand-color)";
 
-    // Simulated sending
     setTimeout(() => {
-        statusMsg.style.color = "var(--brand-color)";
-        statusMsg.textContent = "✅ Message sent successfully! We will contact you soon.";
-        sendBtn.textContent = "Sent ✅";
-
-        setTimeout(() => {
-            sendBtn.textContent = "Send";
-            sendBtn.disabled = false;
-            document.getElementById('name').value = "";
-            document.getElementById('email').value = "";
-            document.getElementById('message').value = "";
-            statusMsg.textContent = "";
-        }, 4000);
-    }, 2000);
+        statusMsg.textContent = "✅ Message sent successfully!";
+        document.getElementById('name').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('message').value = "";
+    }, 1500);
 });
 
 // ===============================
-// Try It Now – IDE Style + Copy Button
+// Hamburger Menu
+// ===============================
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('show');
+});
+
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('show');
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('show');
+    }
+});
+
+// ===============================
+// Try It Now – Typewriter + Pytest Code + Run Tests Simulation
 // ===============================
 const generateBtn = document.getElementById('generateBtn');
 const liveTerminal = document.getElementById('liveTerminal');
@@ -77,14 +70,17 @@ const codeWrapper = document.getElementById('codeWrapper');
 const codeTerminal = document.getElementById('codeTerminal');
 const progressBar = document.getElementById('progress');
 const copyBtn = document.getElementById('copyBtn');
+const runTestsBtn = document.getElementById('runTestsBtn');
+const runResults = document.getElementById('runResults');
 
 function typeWriter(text, element, delay = 50, callback) {
     let i = 0;
+    element.innerHTML = "";
     const interval = setInterval(() => {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
             i++;
-            liveTerminal.scrollTop = liveTerminal.scrollHeight;
+            element.scrollTop = element.scrollHeight;
         } else {
             clearInterval(interval);
             if (callback) callback();
@@ -101,6 +97,7 @@ generateBtn.addEventListener('click', () => {
 
     liveTerminal.innerHTML = "";
     codeWrapper.style.display = "none";
+    runResults.style.display = "none";
     codeTerminal.textContent = "";
     progressBar.style.width = "0%";
 
@@ -114,11 +111,11 @@ generateBtn.addEventListener('click', () => {
 
     typeWriter(`System: ✅ Creating Pytest code...\n`, liveTerminal, 40, () => {
         setTimeout(() => {
-            typeWriter(`System: 🔍 Risk Analysis in progress...\n`, liveTerminal, 40, () => {
+            typeWriter(liveTerminal.innerHTML + `System: 🔍 Risk Analysis in progress...\n`, liveTerminal, 40, () => {
                 setTimeout(() => {
-                    typeWriter(`System: 📊 Generating Excel report...\n`, liveTerminal, 40, () => {
+                    typeWriter(liveTerminal.innerHTML + `System: 📊 Generating Excel report...\n`, liveTerminal, 40, () => {
                         setTimeout(() => {
-                            typeWriter(`System: ✅ Test generated: test_${prompt.replace(/\s+/g, "_").toLowerCase()}.py`, liveTerminal, 40, () => {
+                            typeWriter(liveTerminal.innerHTML + `System: ✅ Test generated: test_${prompt.replace(/\s+/g, "_").toLowerCase()}.py`, liveTerminal, 40, () => {
                                 clearInterval(progressInterval);
                                 progressBar.style.width = "100%";
                                 showPytestCode(prompt);
@@ -133,7 +130,7 @@ generateBtn.addEventListener('click', () => {
 
 function showPytestCode(prompt) {
     const testName = prompt.replace(/\s+/g, "_").toLowerCase();
-    const code = 
+    const code =
 `import pytest
 
 def test_${testName}():
@@ -156,9 +153,28 @@ def test_${testName}():
     }, 10);
 }
 
+// Copy Button
 copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(codeTerminal.textContent).then(() => {
         copyBtn.textContent = "Copied!";
         setTimeout(() => (copyBtn.textContent = "Copy"), 2000);
     });
+});
+
+// Run Tests Simulation
+runTestsBtn.addEventListener('click', () => {
+    runResults.style.display = "block";
+    runResults.textContent = "Running tests...";
+    runResults.style.color = "#f5f5f5";
+
+    setTimeout(() => {
+        const passed = Math.random() > 0.2;
+        if (passed) {
+            runResults.textContent = "✅ All tests passed successfully!";
+            runResults.style.color = "lime";
+        } else {
+            runResults.textContent = "❌ Some tests failed. Check logs for details.";
+            runResults.style.color = "red";
+        }
+    }, 1500);
 });
