@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QA INTELLIGENCE</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
 </head>
 <body>
 
@@ -20,7 +22,6 @@
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
     </nav>
-    <button id="lang-toggle">HE</button>
 </header>
 
 <section class="hero" id="home">
@@ -77,7 +78,7 @@
         <button id="generateBtn">Generate</button>
         <div class="progress-bar"><div class="progress" id="progress"></div></div>
         <div class="terminal live-terminal" id="liveTerminal"></div>
-        <pre class="code-terminal" id="codeTerminal"></pre>
+        <pre class="code-terminal"><code class="language-python" id="codeTerminal"></code></pre>
     </div>
 </section>
 
@@ -129,6 +130,8 @@
     © 2025 QA INTELLIGENCE | All Rights Reserved
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 <script src="script.js" defer></script>
 </body>
 </html>
