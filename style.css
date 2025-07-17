@@ -44,6 +44,7 @@ header {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 25px;
 }
 
@@ -228,7 +229,9 @@ header {
 }
 
 .text-side {
-  flex: 1; min-width: 280px;
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
 }
 
 .image-side img {
@@ -252,11 +255,65 @@ header {
 }
 
 .main-column {
-  flex: 2; min-width: 300px;
+  flex: 2;
+  min-width: 300px;
+}
+
+label {
+  display: block;
+  margin: 5px 0;
+  font-weight: bold;
+  color: var(--brand-color);
+}
+
+.code-wrapper {
+  background: #1e1e1e;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.copy-btn {
+  background: var(--brand-color);
+  color: #000;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.copy-btn:hover {
+  box-shadow: 0 0 10px var(--brand-glow);
+}
+
+.ai-thinking {
+  display: none;
+  margin-top: 8px;
+  color: var(--brand-color);
+  font-size: 0.9rem;
 }
 
 .sidebar {
-  flex: 1; min-width: 200px;
+  flex: 1;
+  min-width: 200px;
   background: var(--card-bg);
   backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
@@ -266,7 +323,8 @@ header {
 }
 
 .chat-log {
-  height: 300px; overflow-y: auto;
+  height: 300px;
+  overflow-y: auto;
   background: rgba(0,0,0,0.8);
   padding: 10px;
   color: #eee;
@@ -282,11 +340,6 @@ header {
   color: #0cf;
 }
 
-/* Input elements */
-input, select, textarea, button {
-  font-family: inherit;
-}
-
 /* Contact Us */
 .contact-form {
   max-width: 500px;
@@ -299,6 +352,7 @@ input, select, textarea, button {
   backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
+  text-align: center;
 }
 
 .contact-form input,
@@ -309,12 +363,6 @@ input, select, textarea, button {
   border-radius: 8px;
   background: rgba(255,255,255,0.05);
   color: #f5f5f5;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--brand-color);
-  outline: none;
 }
 
 .send-btn {
@@ -355,7 +403,7 @@ input, select, textarea, button {
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
 }
 
 .pricing-card:hover {
@@ -364,14 +412,67 @@ input, select, textarea, button {
 }
 
 .pricing-card.popular {
-  border-width: 2px;
-  border-color: var(--brand-color);
+  border: 2px solid var(--brand-color);
 }
 
 .price {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--brand-color);
+}
+
+.pricing-btn {
+  background: var(--brand-color);
+  color: #000;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pricing-btn:hover {
+  box-shadow: 0 0 15px var(--brand-glow);
+}
+
+/* FAQ */
+.faq {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, box-shadow 0.3s;
+}
+
+.faq-card.open {
+  box-shadow: 0 0 10px var(--brand-glow);
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--brand-color);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 12px;
+  transition: max-height 0.3s ease, padding 0.3s;
+  color: #ccc;
+}
+
+.faq-card.open .faq-body {
+  max-height: 100px;
+  padding: 12px;
 }
 
 /* Footer */
