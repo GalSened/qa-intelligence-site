@@ -73,6 +73,7 @@ const runTestsBtn = document.getElementById('runTestsBtn');
 const runResults = document.getElementById('runResults');
 const languageSelect = document.getElementById('languageSelect');
 const optimizationSuggestions = document.getElementById('optimizationSuggestions');
+const aiThinking = document.getElementById('aiThinking');
 
 function typeWriter(text, element, delay = 40, callback) {
     let i = 0;
@@ -103,6 +104,7 @@ generateBtn.addEventListener('click', () => {
     codeTerminal.textContent = "";
     optimizationSuggestions.textContent = "";
     progressBar.style.width = "0%";
+    aiThinking.style.display = "block"; // ✅ הצגת AI Thinking
 
     let progress = 0;
     const progressInterval = setInterval(() => {
@@ -122,6 +124,7 @@ generateBtn.addEventListener('click', () => {
                                 clearInterval(progressInterval);
                                 progressBar.style.width = "100%";
                                 generateSmartCode(language, prompt);
+                                aiThinking.style.display = "none"; // ✅ הסתרת AI Thinking אחרי סיום
                             });
                         }, 800);
                     });
@@ -230,7 +233,11 @@ public class Test${testName.charAt(0).toUpperCase() + testName.slice(1)} {
             break;
     }
 
-    // Display code with typewriter effect
+    // ✅ עדכון ה-Highlight לשפה הנבחרת
+    codeTerminal.className = "";
+    codeTerminal.classList.add(`language-${language}`);
+
+    // Typewriter effect + Highlight
     codeTerminal.textContent = "";
     codeWrapper.style.display = "block";
     let i = 0;
