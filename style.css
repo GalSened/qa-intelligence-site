@@ -46,6 +46,7 @@ header .logo {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 25px;
 }
 
@@ -196,6 +197,7 @@ nav a:hover::after {
     box-shadow: 0 0 35px rgba(0,240,208,0.5);
 }
 
+/* Try It Now */
 .try-it {
     text-align: center;
 }
@@ -327,6 +329,7 @@ pre {
     display: none;
 }
 
+/* Pricing */
 #pricing {
     text-align: center;
     padding: 60px 20px;
@@ -339,11 +342,17 @@ pre {
     gap: 30px;
     max-width: 1100px;
     margin: auto;
-    flex-wrap: nowrap; /* לא ישבור שורה במסכים רחבים */
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 1000px) {
+    .pricing-container {
+        flex-wrap: wrap;
+    }
 }
 
 .pricing-card {
-    flex: 0 0 300px; /* כרטיס ברוחב קבוע */
+    flex: 0 0 300px;
     max-width: 300px;
     background: var(--card-bg);
     border: 1px solid rgba(0,240,208,0.15);
@@ -357,24 +366,66 @@ pre {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.pricing-card h3 {
+    color: var(--brand-color);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.pricing-card .price {
+    font-size: 2.2rem;
+    color: var(--brand-color);
+    margin-bottom: 15px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.pricing-card li {
+    margin-bottom: 6px;
+    color: #f5f5f5;
+    font-size: 0.95rem;
+}
+
+.pricing-card li:contains("✖"),
+.pricing-card li:has(span.x) {
+    color: #ff5f56;
+    font-weight: bold;
+}
+
 .pricing-card.popular {
     border: 2px solid var(--brand-color);
     box-shadow: 0 0 30px rgba(0,240,208,0.4);
     transform: scale(1.05);
 }
 
-@media (max-width: 1000px) {
-    .pricing-container {
-        flex-wrap: wrap; /* במסכים קטנים נשבר לשתי שורות */
-    }
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,240,208,0.4);
 }
 
+.pricing-btn {
+    background: var(--brand-color);
+    color: #000;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
 .pricing-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px var(--brand-color);
 }
 
+/* FAQ */
 .faq {
     max-width: 700px;
     margin: auto;
@@ -430,6 +481,7 @@ pre {
     transform: rotate(180deg);
 }
 
+/* Contact */
 .contact-form {
     max-width: 500px;
     margin: auto;
@@ -542,34 +594,4 @@ footer {
 
 .mobile-menu.show {
     display: flex;
-}
-.pricing-card h3 {
-    color: var(--brand-color);
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.pricing-card .price {
-    font-size: 2.2rem;
-    color: var(--brand-color);
-    margin-bottom: 15px;
-}
-
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    text-align: left;
-}
-
-.pricing-card li {
-    margin-bottom: 6px;
-    color: #f5f5f5; /* לבן קריא */
-    font-size: 0.95rem;
-}
-
-.pricing-card li:contains("✖"),
-.pricing-card li:has(span.x) {
-    color: #ff5f56; /* אדום לתכונות שלא כלולות */
-    font-weight: bold;
 }
