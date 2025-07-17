@@ -62,14 +62,27 @@
 </section>
 
 <section id="try-it" class="try-it gradient-section fade-in">
-  <h2>Code Generator (Step by Step)</h2>
+  <h2>Code Generator (Python PyTest)</h2>
   <div class="try-ai-container">
     <div class="main-column">
-      <label>Step 1: Choose Language</label>
-      <select id="languageSelect">
-        <option value="python">Python (pytest)</option>
-        <option value="javascript">JavaScript (Jest)</option>
-      </select>
+      <label>Enter Prompt:</label>
+      <input id="promptInput" placeholder="e.g. login API test" title="Type your test scenario" />
+      <button id="generateBtn" class="cta-btn">Generate Code</button>
+
+      <div id="terminalWrapper" class="terminal-wrapper">
+        <div class="terminal-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">pytest-generator</span>
+        </div>
+        <pre><code id="codeTerminal" class="language-python"></code></pre>
+      </div>
+
+      <button id="runTestsBtn" class="run-tests-btn">Run Tests</button>
+      <div id="runResults" class="run-results"></div>
+    </div>
+  </div>
+</section>
+
       <label>Step 2: Enter Prompt</label>
       <input id="promptInput" placeholder="e.g. login API test" title="Type your test scenario" />
       <button id="generateBtn">Generate Code</button>
