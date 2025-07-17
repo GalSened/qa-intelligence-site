@@ -238,3 +238,26 @@ h2 {
 .mockup-container img:hover {
     transform: scale(1.02);
 }
+
+
+#automation, #examples, #dashboard {
+    padding: 60px 20px;
+}
+
+.mockup-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mockup-container img {
+    max-width: 85%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,240,208,0.3);
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.mockup-container img:hover {
+    transform: scale(1.02);
+}
