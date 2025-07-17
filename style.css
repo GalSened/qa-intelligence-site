@@ -339,3 +339,14 @@ footer {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+body[dir="rtl"] {
+    text-align: right;
+}
+
+body[dir="rtl"] .hero h1,
+body[dir="rtl"] .hero p,
+body[dir="rtl"] .text-side h2,
+body[dir="rtl"] .text-side p,
+body[dir="rtl"] .contact-form {
+    text-align: right;
+}
