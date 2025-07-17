@@ -1,4 +1,6 @@
+// ===============================
 // Feature Cards Animation
+// ===============================
 const featureCards = document.querySelectorAll('.feature-card');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -9,7 +11,9 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 featureCards.forEach(card => observer.observe(card));
 
-// FAQ Toggle
+// ===============================
+// FAQ Toggle – Interactive Accordion
+// ===============================
 document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
         const faqItem = button.parentElement;
@@ -17,7 +21,9 @@ document.querySelectorAll('.faq-question').forEach(button => {
     });
 });
 
-// Contact Form Simulation
+// ===============================
+// Contact Form – Active Simulation (SaaS-like)
+// ===============================
 const sendBtn = document.getElementById('sendBtn');
 const statusMsg = document.getElementById('statusMsg');
 
@@ -32,22 +38,39 @@ sendBtn.addEventListener('click', () => {
         return;
     }
 
+    // Email Validation
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+    if (!email.match(emailPattern)) {
+        statusMsg.style.color = "red";
+        statusMsg.textContent = "Please enter a valid email.";
+        return;
+    }
+
     sendBtn.textContent = "Sending...";
     sendBtn.disabled = true;
-    statusMsg.textContent = "";
+    statusMsg.style.color = "#ccc";
+    statusMsg.textContent = "Processing...";
 
+    // Simulated sending
     setTimeout(() => {
-        sendBtn.textContent = "Message Sent ✅";
         statusMsg.style.color = "var(--brand-color)";
-        statusMsg.textContent = "We will get back to you shortly.";
+        statusMsg.textContent = "✅ Message sent successfully! We will contact you soon.";
+        sendBtn.textContent = "Sent ✅";
+
         setTimeout(() => {
             sendBtn.textContent = "Send";
             sendBtn.disabled = false;
-        }, 3000);
+            document.getElementById('name').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('message').value = "";
+            statusMsg.textContent = "";
+        }, 4000);
     }, 2000);
 });
 
-// Try It Now - Typewriter + Pytest Code Simulation
+// ===============================
+// Try It Now – Typewriter + Pytest Code Simulation
+// ===============================
 const generateBtn = document.getElementById('generateBtn');
 const liveTerminal = document.getElementById('liveTerminal');
 const codeTerminal = document.getElementById('codeTerminal');
@@ -74,6 +97,7 @@ generateBtn.addEventListener('click', () => {
         return;
     }
 
+    // Reset UI
     liveTerminal.innerHTML = "";
     codeTerminal.style.display = "none";
     codeTerminal.textContent = "";
@@ -107,13 +131,15 @@ generateBtn.addEventListener('click', () => {
 });
 
 function showPytestCode(prompt) {
+    const testName = prompt.replace(/\s+/g, "_").toLowerCase();
     const code = 
 `import pytest
 
-def test_${prompt.replace(/\s+/g, "_").toLowerCase()}():
-    response = client.post("/api/${prompt.replace(/\s+/g, "_").toLowerCase()}", json={"param": "value"})
+def test_${testName}():
+    response = client.post("/api/${testName}", json={"param": "value"})
     assert response.status_code == 200
     assert "success" in response.json()`;
+
     codeTerminal.style.display = "block";
     let i = 0;
     const interval = setInterval(() => {
