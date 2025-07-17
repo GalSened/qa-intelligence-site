@@ -5,23 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QA INTELLIGENCE</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Highlight.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
 </head>
 <body>
 
 <header>
     <img src="logo.png" alt="QA Intelligence Logo" class="logo">
-    <nav>
+
+    <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#features">Features</a>
         <a href="#examples">Examples</a>
         <a href="#architecture">Architecture</a>
         <a href="#dashboard">Dashboard</a>
         <a href="#try-it">Try It</a>
+        <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
     </nav>
+
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#examples">Examples</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#try-it">Try It</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+    </div>
 </header>
 
 <section class="hero" id="home">
@@ -46,6 +63,30 @@
     </div>
 </section>
 
+<section id="dashboard" class="side-layout gradient-section">
+    <div class="text-side">
+        <h2>Dashboard & Reports</h2>
+        <p>
+            QA INTELLIGENCE provides a powerful, real-time dashboard with interactive charts, Dark Mode, and automatic Excel export – organized by modules for maximum clarity.
+        </p>
+    </div>
+    <div class="image-side">
+        <img src="mockup-dashboard.png" alt="QA Intelligence Dashboard">
+    </div>
+</section>
+
+<section id="automation" class="side-layout gradient-section">
+    <div class="text-side">
+        <h2>Automated Workflow</h2>
+        <p>
+            From simple prompts to full test generation, risk analysis, and instant Excel reporting – QA INTELLIGENCE automates the entire testing process with precision and intelligence.
+        </p>
+    </div>
+    <div class="image-side">
+        <img src="mockup-automation.png" alt="QA Intelligence Automated Workflow">
+    </div>
+</section>
+
 <section id="try-it" class="try-it gradient-section">
     <h2>Try It Now</h2>
     <p class="center-text">Type a simple prompt and watch QA INTELLIGENCE simulate Pytest code generation in real-time.</p>
@@ -54,16 +95,50 @@
         <button id="generateBtn">Generate</button>
         <div class="progress-bar"><div class="progress" id="progress"></div></div>
         <div class="terminal live-terminal" id="liveTerminal"></div>
-        
-        <!-- IDE-like Code Container -->
         <div class="code-wrapper" id="codeWrapper">
             <div class="code-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
                 <button class="copy-btn" id="copyBtn">Copy</button>
             </div>
             <pre><code class="language-python" id="codeTerminal"></code></pre>
+        </div>
+        <button id="runTestsBtn" class="run-tests-btn">Run Tests</button>
+        <div class="run-results" id="runResults"></div>
+    </div>
+</section>
+
+<section id="pricing" class="gradient-section">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h3>Basic</h3>
+            <p class="price">$29<span>/mo</span></p>
+            <ul>
+                <li>✔ Basic Test Generation</li>
+                <li>✔ Dashboard Access</li>
+                <li>✖ No Self-Healing</li>
+            </ul>
+            <button class="pricing-btn">Get Started</button>
+        </div>
+        <div class="pricing-card popular">
+            <h3>Pro</h3>
+            <p class="price">$79<span>/mo</span></p>
+            <ul>
+                <li>✔ Smart Test Generation</li>
+                <li>✔ Full Dashboard & Reports</li>
+                <li>✔ Parallel Smart Run</li>
+            </ul>
+            <button class="pricing-btn">Choose Pro</button>
+        </div>
+        <div class="pricing-card">
+            <h3>Enterprise</h3>
+            <p class="price">$199<span>/mo</span></p>
+            <ul>
+                <li>✔ Full AI Test Suite</li>
+                <li>✔ Self-Healing Tests</li>
+                <li>✔ Priority Support</li>
+            </ul>
+            <button class="pricing-btn">Contact Sales</button>
         </div>
     </div>
 </section>
@@ -72,31 +147,16 @@
     <h2>FAQ</h2>
     <div class="faq">
         <div class="faq-item">
-            <button class="faq-question">
-                <span>What is QA INTELLIGENCE?</span>
-                <span class="arrow">▼</span>
-            </button>
-            <div class="faq-answer">
-                QA INTELLIGENCE is an AI-driven testing platform that generates, manages, and executes tests automatically.
-            </div>
+            <button class="faq-question"><span>What is QA INTELLIGENCE?</span><span class="arrow">▼</span></button>
+            <div class="faq-answer">QA INTELLIGENCE is an AI-driven testing platform that generates, manages, and executes tests automatically.</div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">
-                <span>Can it integrate with GitHub/GitLab?</span>
-                <span class="arrow">▼</span>
-            </button>
-            <div class="faq-answer">
-                Yes, it supports GitHub, GitLab, and Bitbucket for seamless source code analysis.
-            </div>
+            <button class="faq-question"><span>Can it integrate with GitHub/GitLab?</span><span class="arrow">▼</span></button>
+            <div class="faq-answer">Yes, it supports GitHub, GitLab, and Bitbucket for seamless source code analysis.</div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">
-                <span>Does it support self-healing tests?</span>
-                <span class="arrow">▼</span>
-            </button>
-            <div class="faq-answer">
-                Absolutely. QA INTELLIGENCE uses AI to detect failing tests and auto-fix them in real-time.
-            </div>
+            <button class="faq-question"><span>Does it support self-healing tests?</span><span class="arrow">▼</span></button>
+            <div class="faq-answer">Absolutely. QA INTELLIGENCE uses AI to detect failing tests and auto-fix them in real-time.</div>
         </div>
     </div>
 </section>
