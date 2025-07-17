@@ -69,15 +69,14 @@ sendBtn.addEventListener('click', () => {
 });
 
 // ===============================
-// Try It Now – Typewriter + Pytest Code Simulation
+// Try It Now – IDE Style + Copy Button
 // ===============================
-
-
-// Try It Now – Typewriter + Pytest Code Simulation + Highlight
 const generateBtn = document.getElementById('generateBtn');
 const liveTerminal = document.getElementById('liveTerminal');
+const codeWrapper = document.getElementById('codeWrapper');
 const codeTerminal = document.getElementById('codeTerminal');
 const progressBar = document.getElementById('progress');
+const copyBtn = document.getElementById('copyBtn');
 
 function typeWriter(text, element, delay = 50, callback) {
     let i = 0;
@@ -101,8 +100,8 @@ generateBtn.addEventListener('click', () => {
     }
 
     liveTerminal.innerHTML = "";
+    codeWrapper.style.display = "none";
     codeTerminal.textContent = "";
-    codeTerminal.parentElement.style.display = "none";
     progressBar.style.width = "0%";
 
     let progress = 0;
@@ -142,40 +141,24 @@ def test_${testName}():
     assert response.status_code == 200
     assert "success" in response.json()`;
 
-    codeTerminal.textContent = code;
-    codeTerminal.parentElement.style.display = "block";
+    codeTerminal.textContent = "";
+    codeWrapper.style.display = "block";
 
-    // Syntax Highlighting
-    setTimeout(() => {
-        hljs.highlightElement(codeTerminal);
-    }, 50);
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < code.length) {
+            codeTerminal.textContent += code.charAt(i);
+            i++;
+        } else {
+            clearInterval(interval);
+            hljs.highlightElement(codeTerminal);
+        }
+    }, 10);
 }
 
-
-
-// ===============================
-// Language Toggle (EN <-> HE)
-// ===============================
-const langToggle = document.getElementById('lang-toggle');
-let currentLang = "en"; // default
-
-langToggle.addEventListener('click', () => {
-    currentLang = currentLang === "en" ? "he" : "en";
-    const isHebrew = currentLang === "he";
-
-    // עדכון כל הטקסטים בעלי data-en/data-he
-    document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = isHebrew ? el.dataset.he : el.dataset.en;
+copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(codeTerminal.textContent).then(() => {
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => (copyBtn.textContent = "Copy"), 2000);
     });
-
-    // עדכון Placeholders לטפסים
-    document.querySelectorAll('[data-en-placeholder]').forEach(input => {
-        input.placeholder = isHebrew ? input.dataset.hePlaceholder : input.dataset.enPlaceholder;
-    });
-
-    // כיווניות
-    document.body.setAttribute("dir", isHebrew ? "rtl" : "ltr");
-
-    // כפתור מתחלף
-    langToggle.textContent = isHebrew ? "EN" : "HE";
 });
