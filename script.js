@@ -293,3 +293,10 @@ window.addEventListener('DOMContentLoaded', () => {
         }, index * 150);
     });
 });
+// ===============================
+// FAQ Interactive Toggle (New)
+document.querySelectorAll('.faq-card').forEach(card => {
+    card.querySelector('.faq-header').addEventListener('click', () => {
+        card.classList.toggle('active');
+    });
+});
