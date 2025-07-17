@@ -543,3 +543,33 @@ footer {
 .mobile-menu.show {
     display: flex;
 }
+.pricing-card h3 {
+    color: var(--brand-color);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.pricing-card .price {
+    font-size: 2.2rem;
+    color: var(--brand-color);
+    margin-bottom: 15px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.pricing-card li {
+    margin-bottom: 6px;
+    color: #f5f5f5; /* לבן קריא */
+    font-size: 0.95rem;
+}
+
+.pricing-card li:contains("✖"),
+.pricing-card li:has(span.x) {
+    color: #ff5f56; /* אדום לתכונות שלא כלולות */
+    font-weight: bold;
+}
