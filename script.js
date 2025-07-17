@@ -9,15 +9,12 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 featureCards.forEach(card => observer.observe(card));
 
-// Language Toggle (default: English)
-const langToggle = document.getElementById('lang-toggle');
-langToggle.addEventListener('click', () => {
-    const isHebrew = langToggle.textContent === 'HE';
-    document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = isHebrew ? el.dataset.he : el.dataset.en;
+// FAQ Toggle
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle('active');
     });
-    document.body.setAttribute('dir', isHebrew ? 'rtl' : 'ltr');
-    langToggle.textContent = isHebrew ? 'EN' : 'HE';
 });
 
 // Contact Form Simulation
@@ -50,9 +47,10 @@ sendBtn.addEventListener('click', () => {
     }, 2000);
 });
 
-// Try It Now - Typewriter Simulation with Progress
+// Try It Now - Typewriter + Pytest Code Simulation
 const generateBtn = document.getElementById('generateBtn');
 const liveTerminal = document.getElementById('liveTerminal');
+const codeTerminal = document.getElementById('codeTerminal');
 const progressBar = document.getElementById('progress');
 
 function typeWriter(text, element, delay = 50, callback) {
@@ -77,6 +75,8 @@ generateBtn.addEventListener('click', () => {
     }
 
     liveTerminal.innerHTML = "";
+    codeTerminal.style.display = "none";
+    codeTerminal.textContent = "";
     progressBar.style.width = "0%";
 
     let progress = 0;
@@ -93,9 +93,11 @@ generateBtn.addEventListener('click', () => {
                 setTimeout(() => {
                     typeWriter(`System: 📊 Generating Excel report...\n`, liveTerminal, 40, () => {
                         setTimeout(() => {
-                            typeWriter(`System: ✅ Test generated: test_${prompt.replace(/\s+/g, "_").toLowerCase()}.py`, liveTerminal, 40);
-                            clearInterval(progressInterval);
-                            progressBar.style.width = "100%";
+                            typeWriter(`System: ✅ Test generated: test_${prompt.replace(/\s+/g, "_").toLowerCase()}.py`, liveTerminal, 40, () => {
+                                clearInterval(progressInterval);
+                                progressBar.style.width = "100%";
+                                showPytestCode(prompt);
+                            });
                         }, 800);
                     });
                 }, 800);
@@ -103,3 +105,23 @@ generateBtn.addEventListener('click', () => {
         }, 800);
     });
 });
+
+function showPytestCode(prompt) {
+    const code = 
+`import pytest
+
+def test_${prompt.replace(/\s+/g, "_").toLowerCase()}():
+    response = client.post("/api/${prompt.replace(/\s+/g, "_").toLowerCase()}", json={"param": "value"})
+    assert response.status_code == 200
+    assert "success" in response.json()`;
+    codeTerminal.style.display = "block";
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < code.length) {
+            codeTerminal.textContent += code.charAt(i);
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 15);
+}
