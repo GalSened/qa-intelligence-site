@@ -151,3 +151,31 @@ def test_${testName}():
         }
     }, 15);
 }
+
+
+// ===============================
+// Language Toggle (EN <-> HE)
+// ===============================
+const langToggle = document.getElementById('lang-toggle');
+let currentLang = "en"; // default
+
+langToggle.addEventListener('click', () => {
+    currentLang = currentLang === "en" ? "he" : "en";
+    const isHebrew = currentLang === "he";
+
+    // עדכון כל הטקסטים בעלי data-en/data-he
+    document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = isHebrew ? el.dataset.he : el.dataset.en;
+    });
+
+    // עדכון Placeholders לטפסים
+    document.querySelectorAll('[data-en-placeholder]').forEach(input => {
+        input.placeholder = isHebrew ? input.dataset.hePlaceholder : input.dataset.enPlaceholder;
+    });
+
+    // כיווניות
+    document.body.setAttribute("dir", isHebrew ? "rtl" : "ltr");
+
+    // כפתור מתחלף
+    langToggle.textContent = isHebrew ? "EN" : "HE";
+});
