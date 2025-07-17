@@ -6,7 +6,7 @@
     <title>QA INTELLIGENCE</title>
     <link rel="stylesheet" href="style.css">
     <!-- Highlight.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
 </head>
 <body>
 
@@ -46,30 +46,6 @@
     </div>
 </section>
 
-<section id="dashboard" class="side-layout gradient-section">
-    <div class="text-side">
-        <h2>Dashboard & Reports</h2>
-        <p>
-            Real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules.
-        </p>
-    </div>
-    <div class="image-side">
-        <img src="mockup-dashboard.png" alt="QA Intelligence Dashboard">
-    </div>
-</section>
-
-<section id="automation" class="side-layout gradient-section">
-    <div class="text-side">
-        <h2>Automated Workflow</h2>
-        <p>
-            From simple prompts to full test generation, risk analysis, and instant Excel reporting – fully automated.
-        </p>
-    </div>
-    <div class="image-side">
-        <img src="mockup-automation.png" alt="QA Intelligence Automated Workflow">
-    </div>
-</section>
-
 <section id="try-it" class="try-it gradient-section">
     <h2>Try It Now</h2>
     <p class="center-text">Type a simple prompt and watch QA INTELLIGENCE simulate Pytest code generation in real-time.</p>
@@ -78,7 +54,17 @@
         <button id="generateBtn">Generate</button>
         <div class="progress-bar"><div class="progress" id="progress"></div></div>
         <div class="terminal live-terminal" id="liveTerminal"></div>
-        <pre class="code-terminal"><code class="language-python" id="codeTerminal"></code></pre>
+        
+        <!-- IDE-like Code Container -->
+        <div class="code-wrapper" id="codeWrapper">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <button class="copy-btn" id="copyBtn">Copy</button>
+            </div>
+            <pre><code class="language-python" id="codeTerminal"></code></pre>
+        </div>
     </div>
 </section>
 
@@ -131,7 +117,6 @@
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
 <script src="script.js" defer></script>
 </body>
 </html>
