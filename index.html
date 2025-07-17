@@ -11,44 +11,40 @@
 <header>
     <img src="logo.png" alt="QA Intelligence Logo" class="logo">
     <nav>
-        <a href="#home" data-en="Home" data-he="בית">Home</a>
-        <a href="#features" data-en="Features" data-he="יכולות">Features</a>
-        <a href="#examples" data-en="Examples" data-he="דוגמאות">Examples</a>
-        <a href="#architecture" data-en="Architecture" data-he="ארכיטקטורה">Architecture</a>
-        <a href="#dashboard" data-en="Dashboard" data-he="דשבורד">Dashboard</a>
-        <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#examples">Examples</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#contact">Contact</a>
     </nav>
     <button id="lang-toggle">HE</button>
 </header>
 
 <section class="hero" id="home">
     <div class="hero-content">
-        <h1 data-en="QA INTELLIGENCE – The Future of Automated Testing"
-            data-he="QA INTELLIGENCE – העתיד של בדיקות אוטומטיות">
-            QA INTELLIGENCE – The Future of Automated Testing
-        </h1>
-        <p data-en="An intelligent AI system that generates, manages, and executes tests, detects risks, and self-heals failing tests."
-           data-he="מערכת AI חכמה שמייצרת, מנהלת ומבצעת בדיקות, מזהה סיכונים ומרפאת טסטים כושלים בעצמה.">
-           An intelligent AI system that generates, manages, and executes tests, detects risks, and self-heals failing tests.
+        <h1>QA INTELLIGENCE – The Future of Automated Testing</h1>
+        <p>
+            An intelligent AI system that generates, manages, and executes tests, detects risks, and self-heals failing tests.
         </p>
-        <button class="cta-btn" data-en="Start Now" data-he="התחל עכשיו">Start Now</button>
+        <button class="cta-btn">Start Now</button>
     </div>
 </section>
 
 <section id="features">
-    <h2 data-en="Main Features" data-he="יכולות עיקריות">Main Features</h2>
+    <h2>Main Features</h2>
     <div class="features">
-        <div class="feature-card"><div class="feature-icon">🤖</div><h3 data-en="Smart Test Generation">Smart Test Generation</h3><p data-en="Automatic test generation from code and specs using advanced AI analysis."></p></div>
-        <div class="feature-card"><div class="feature-icon">⚡</div><h3 data-en="Parallel Smart Run">Parallel Smart Run</h3><p data-en="Automated scheduling with critical area detection and distributed execution."></p></div>
-        <div class="feature-card"><div class="feature-icon">📊</div><h3 data-en="Smart Reports & Dashboard">Smart Reports & Dashboard</h3><p data-en="Interactive dashboard, Dark Mode, real-time charts, and automatic Excel export."></p></div>
-        <div class="feature-card"><div class="feature-icon">🛠</div><h3 data-en="Self-Healing Tests">Self-Healing Tests</h3><p data-en="Automatically detects and heals failing tests using self-learning mechanisms."></p></div>
-        <div class="feature-card"><div class="feature-icon">🔗</div><h3 data-en="Full Integration">Full Integration</h3><p data-en="Supports Jira, GitLab, Jenkins, Postman, and Newman for seamless workflows."></p></div>
-        <div class="feature-card"><div class="feature-icon">🧠</div><h3 data-en="Smart Risk Classification">Smart Risk Classification</h3><p data-en="AI classifies high-risk areas and generates focused tests for better coverage."></p></div>
+        <div class="feature-card"><div class="feature-icon">🤖</div><h3>Smart Test Generation</h3><p>Automatic test generation from code and specs using advanced AI analysis.</p></div>
+        <div class="feature-card"><div class="feature-icon">⚡</div><h3>Parallel Smart Run</h3><p>Automated scheduling with critical area detection and distributed execution.</p></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><h3>Smart Reports & Dashboard</h3><p>Interactive dashboard, Dark Mode, real-time charts, and automatic Excel export.</p></div>
+        <div class="feature-card"><div class="feature-icon">🛠</div><h3>Self-Healing Tests</h3><p>Automatically detects and heals failing tests using self-learning mechanisms.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔗</div><h3>Source Code Integration</h3><p>Seamless integration with GitHub, GitLab, and Bitbucket for real-time code analysis.</p></div>
+        <div class="feature-card"><div class="feature-icon">🧠</div><h3>Smart Risk Classification</h3><p>AI classifies high-risk areas and generates focused tests for better coverage.</p></div>
     </div>
 </section>
 
 <section id="examples">
-    <h2 data-en="Real System Examples">Real System Examples</h2>
+    <h2>Real System Examples</h2>
     <div class="examples">
         <div class="example-card">
             <h3>Prompt → Pytest</h3>
@@ -61,15 +57,15 @@
         <div class="example-card">
             <h3>Excel Export</h3>
             <div class="terminal">
-                <p><span class="user">System:</span> Exporting test bank to Excel...</p>
+                <p><span class="system">System:</span> Exporting test bank to Excel...</p>
                 <p class="typing"><span class="system">System:</span> ✅ File created: <strong>qa_tests_module.xlsx</strong></p>
             </div>
         </div>
         <div class="example-card">
-            <h3>GitLab Integration</h3>
+            <h3>Source Code Integration</h3>
             <div class="terminal">
-                <p><span class="user">System:</span> Pulling latest repository code...</p>
-                <p class="typing"><span class="system">System:</span> ✅ Retrieved 145 files for analysis</p>
+                <p><span class="system">System:</span> Pulling latest code from GitHub, GitLab, Bitbucket...</p>
+                <p class="typing"><span class="system">System:</span> ✅ 145 files analyzed successfully</p>
                 <p class="typing"><span class="system">System:</span> ✅ Smart Test Generation complete</p>
             </div>
         </div>
@@ -77,25 +73,34 @@
 </section>
 
 <section id="architecture">
-    <h2 data-en="System Architecture">System Architecture</h2>
-    <p class="center-text" data-en="QA INTELLIGENCE is built on a microservices architecture with Local AI Engines, GitLab integration, and smart parallel execution.">
-        QA INTELLIGENCE is built on a microservices architecture with Local AI Engines, GitLab integration, and smart parallel execution.
+    <h2>System Architecture</h2>
+    <p class="center-text">
+        QA INTELLIGENCE is built on a microservices architecture with Local AI Engines, full source code integration, and smart parallel execution.
     </p>
 </section>
 
 <section id="dashboard">
-    <h2 data-en="Dashboard & Reports">Dashboard & Reports</h2>
-    <p class="center-text" data-en="The dashboard provides real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules.">
-        The dashboard provides real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules.
+    <h2>Dashboard & Reports</h2>
+    <p class="center-text">
+        Real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules.
     </p>
     <div class="mockup-container">
         <img src="mockup-dashboard.png" alt="QA Intelligence Dashboard">
     </div>
 </section>
 
+<section id="automation">
+    <h2>Automated Workflow</h2>
+    <p class="center-text">
+        From simple prompts to full test generation, risk analysis, and instant Excel reporting – fully automated.
+    </p>
+    <div class="mockup-container">
+        <img src="mockup-automation.png" alt="QA Intelligence Automated Workflow">
+    </div>
+</section>
 
 <section id="contact" class="contact">
-    <h2 data-en="Contact Us">Contact Us</h2>
+    <h2>Contact Us</h2>
     <div class="contact-form">
         <input type="text" placeholder="Full Name">
         <input type="email" placeholder="Email">
