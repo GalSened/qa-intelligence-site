@@ -289,7 +289,11 @@ footer {
     border-radius: 8px;
     margin-bottom: 10px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,240,208,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item.active {
+    box-shadow: 0 0 10px rgba(0,240,208,0.4);
 }
 
 .faq-question {
@@ -302,6 +306,9 @@ footer {
     font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .faq-answer {
@@ -310,13 +317,22 @@ footer {
     background: #111;
     color: #ccc;
     padding: 0 15px;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
 .faq-item.active .faq-answer {
     max-height: 200px;
     padding: 10px 15px;
 }
+
+.faq-item .arrow {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .arrow {
+    transform: rotate(180deg);
+}
+
 
 /* קוד Pytest חי */
 .code-terminal {
