@@ -13,6 +13,7 @@
     <nav>
         <a href="#home" data-en="Home" data-he="בית">Home</a>
         <a href="#features" data-en="Features" data-he="יכולות">Features</a>
+        <a href="#examples" data-en="Examples" data-he="דוגמאות">Examples</a>
         <a href="#architecture" data-en="Architecture" data-he="ארכיטקטורה">Architecture</a>
         <a href="#dashboard" data-en="Dashboard" data-he="דשבורד">Dashboard</a>
         <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
@@ -37,63 +38,66 @@
 <section id="features">
     <h2 data-en="Main Features" data-he="יכולות עיקריות">Main Features</h2>
     <div class="features">
-        <div class="feature-card">
-            <div class="feature-icon">🤖</div>
-            <h3 data-en="Smart Test Generation" data-he="גנרציה חכמה של טסטים">Smart Test Generation</h3>
-            <p data-en="Automatic test generation from code and specs using advanced AI analysis."
-               data-he="יצירת טסטים אוטומטית מקוד ומספציפיקציות עם ניתוח AI מתקדם."></p>
+        <div class="feature-card"><div class="feature-icon">🤖</div><h3 data-en="Smart Test Generation">Smart Test Generation</h3><p data-en="Automatic test generation from code and specs using advanced AI analysis."></p></div>
+        <div class="feature-card"><div class="feature-icon">⚡</div><h3 data-en="Parallel Smart Run">Parallel Smart Run</h3><p data-en="Automated scheduling with critical area detection and distributed execution."></p></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><h3 data-en="Smart Reports & Dashboard">Smart Reports & Dashboard</h3><p data-en="Interactive dashboard, Dark Mode, real-time charts, and automatic Excel export."></p></div>
+        <div class="feature-card"><div class="feature-icon">🛠</div><h3 data-en="Self-Healing Tests">Self-Healing Tests</h3><p data-en="Automatically detects and heals failing tests using self-learning mechanisms."></p></div>
+        <div class="feature-card"><div class="feature-icon">🔗</div><h3 data-en="Full Integration">Full Integration</h3><p data-en="Supports Jira, GitLab, Jenkins, Postman, and Newman for seamless workflows."></p></div>
+        <div class="feature-card"><div class="feature-icon">🧠</div><h3 data-en="Smart Risk Classification">Smart Risk Classification</h3><p data-en="AI classifies high-risk areas and generates focused tests for better coverage."></p></div>
+    </div>
+</section>
+
+<section id="examples">
+    <h2 data-en="Real System Examples">Real System Examples</h2>
+    <div class="examples">
+        <div class="example-card">
+            <h3>Prompt → Pytest</h3>
+            <div class="terminal">
+                <p><span class="user">User:</span> Generate tests for login API</p>
+                <p class="typing"><span class="system">System:</span> ✅ Creating Pytest code...</p>
+                <p class="typing"><span class="system">System:</span> ✅ Test generated: <strong>test_login_api.py</strong></p>
+            </div>
         </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3 data-en="Parallel Smart Run" data-he="הרצה מקבילה חכמה">Parallel Smart Run</h3>
-            <p data-en="Automated scheduling with critical area detection and distributed execution."
-               data-he="תזמון אוטומטי עם זיהוי אזורים קריטיים והרצה מבוזרת."></p>
+        <div class="example-card">
+            <h3>Excel Export</h3>
+            <div class="terminal">
+                <p><span class="user">System:</span> Exporting test bank to Excel...</p>
+                <p class="typing"><span class="system">System:</span> ✅ File created: <strong>qa_tests_module.xlsx</strong></p>
+            </div>
         </div>
-        <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3 data-en="Smart Reports & Dashboard" data-he="דוחות חכמים ודשבורד">Smart Reports & Dashboard</h3>
-            <p data-en="Interactive dashboard, Dark Mode, real-time charts, and automatic Excel export."
-               data-he="דשבורד אינטראקטיבי, Dark Mode וגרפים בזמן אמת עם ייצוא אוטומטי לאקסל."></p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🛠</div>
-            <h3 data-en="Self-Healing Tests" data-he="טסטים מרפאים את עצמם">Self-Healing Tests</h3>
-            <p data-en="Automatically detects and heals failing tests using self-learning mechanisms."
-               data-he="זיהוי אוטומטי וריפוי של טסטים כושלים באמצעות מנגנוני למידה עצמית."></p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🔗</div>
-            <h3 data-en="Full Integration" data-he="אינטגרציה מלאה">Full Integration</h3>
-            <p data-en="Supports Jira, GitLab, Jenkins, Postman, and Newman for seamless workflows."
-               data-he="תמיכה ב-Jira, GitLab, Jenkins, Postman ו-Newman לזרימה חלקה של תהליכים."></p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🧠</div>
-            <h3 data-en="Smart Risk Classification" data-he="סיווג סיכונים חכם">Smart Risk Classification</h3>
-            <p data-en="AI classifies high-risk areas and generates focused tests for better coverage."
-               data-he="AI מסווג אזורים בסיכון גבוה ומייצר עבורם בדיקות ממוקדות."></p>
+        <div class="example-card">
+            <h3>GitLab Integration</h3>
+            <div class="terminal">
+                <p><span class="user">System:</span> Pulling latest repository code...</p>
+                <p class="typing"><span class="system">System:</span> ✅ Retrieved 145 files for analysis</p>
+                <p class="typing"><span class="system">System:</span> ✅ Smart Test Generation complete</p>
+            </div>
         </div>
     </div>
 </section>
 
 <section id="architecture">
-    <h2 data-en="System Architecture" data-he="ארכיטקטורת המערכת">System Architecture</h2>
-    <p data-en="QA INTELLIGENCE is built on a microservices architecture with Local AI Engines, GitLab integration, and smart parallel execution."
-       data-he="QA INTELLIGENCE בנויה בארכיטקטורת מיקרו-שירותים עם תמיכה ב-Local AI Engines, GitLab Integration, וביצוע מקבילי חכם."></p>
+    <h2 data-en="System Architecture">System Architecture</h2>
+    <p class="center-text" data-en="QA INTELLIGENCE is built on a microservices architecture with Local AI Engines, GitLab integration, and smart parallel execution.">
+        QA INTELLIGENCE is built on a microservices architecture with Local AI Engines, GitLab integration, and smart parallel execution.
+    </p>
 </section>
 
 <section id="dashboard">
-    <h2 data-en="Dashboard & Reports" data-he="דשבורד ודוחות">Dashboard & Reports</h2>
-    <p data-en="The dashboard provides real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules."
-       data-he="מערכת הדשבורד מספקת מעקב בזמן אמת, גרפים אינטראקטיביים, Dark Mode, וייצוא אוטומטי לאקסל – מחולק לפי מודולים."></p>
+    <h2 data-en="Dashboard & Reports">Dashboard & Reports</h2>
+    <p class="center-text" data-en="The dashboard provides real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules.">
+        The dashboard provides real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules.
+    </p>
 </section>
 
 <section id="contact" class="contact">
-    <h2 data-en="Contact Us" data-he="צור קשר">Contact Us</h2>
-    <input type="text" placeholder="Full Name" data-en="Full Name" data-he="שם מלא">
-    <input type="email" placeholder="Email" data-en="Email" data-he="אימייל">
-    <textarea rows="4" placeholder="Message" data-en="Message" data-he="הודעה"></textarea><br>
-    <button data-en="Send" data-he="שלח">Send</button>
+    <h2 data-en="Contact Us">Contact Us</h2>
+    <div class="contact-form">
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <textarea rows="4" placeholder="Message"></textarea><br>
+        <button class="send-btn">Send</button>
+    </div>
 </section>
 
 <footer>
