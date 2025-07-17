@@ -33,7 +33,53 @@
     </div>
 </section>
 
-<!-- Sections of Features, Dashboard, Try It Now (unchanged) -->
+<section id="features" class="gradient-section">
+    <h2>Main Features</h2>
+    <div class="features">
+        <div class="feature-card"><div class="feature-icon">🤖</div><h3>Smart Test Generation</h3><p>Automatic test generation from code and specs using advanced AI analysis.</p></div>
+        <div class="feature-card"><div class="feature-icon">⚡</div><h3>Parallel Smart Run</h3><p>Automated scheduling with critical area detection and distributed execution.</p></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><h3>Smart Reports & Dashboard</h3><p>Interactive dashboard, Dark Mode, real-time charts, and automatic Excel export.</p></div>
+        <div class="feature-card"><div class="feature-icon">🛠</div><h3>Self-Healing Tests</h3><p>Automatically detects and heals failing tests using self-learning mechanisms.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔗</div><h3>Source Code Integration</h3><p>Seamless integration with GitHub, GitLab, and Bitbucket for real-time code analysis.</p></div>
+        <div class="feature-card"><div class="feature-icon">🧠</div><h3>Smart Risk Classification</h3><p>AI classifies high-risk areas and generates focused tests for better coverage.</p></div>
+    </div>
+</section>
+
+<section id="dashboard" class="side-layout gradient-section">
+    <div class="text-side">
+        <h2>Dashboard & Reports</h2>
+        <p>
+            Real-time monitoring, interactive charts, Dark Mode, and automatic Excel export – organized by modules.
+        </p>
+    </div>
+    <div class="image-side">
+        <img src="mockup-dashboard.png" alt="QA Intelligence Dashboard">
+    </div>
+</section>
+
+<section id="automation" class="side-layout gradient-section">
+    <div class="text-side">
+        <h2>Automated Workflow</h2>
+        <p>
+            From simple prompts to full test generation, risk analysis, and instant Excel reporting – fully automated.
+        </p>
+    </div>
+    <div class="image-side">
+        <img src="mockup-automation.png" alt="QA Intelligence Automated Workflow">
+    </div>
+</section>
+
+<section id="try-it" class="try-it gradient-section">
+    <h2>Try It Now</h2>
+    <p class="center-text">Type a simple prompt and watch QA INTELLIGENCE simulate Pytest code generation in real-time.</p>
+    <div class="try-container">
+        <input type="text" id="promptInput" placeholder="e.g., Generate tests for login API">
+        <button id="generateBtn">Generate</button>
+        <div class="progress-bar"><div class="progress" id="progress"></div></div>
+        <div class="terminal live-terminal" id="liveTerminal"></div>
+        <pre class="code-terminal" id="codeTerminal"></pre>
+    </div>
+</section>
 
 <section id="faq" class="gradient-section">
     <h2>FAQ</h2>
