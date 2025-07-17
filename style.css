@@ -27,25 +27,25 @@ h2 {
 
 header {
     background: linear-gradient(90deg, #1e1e1e, #111);
-    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 40px;
+    height: 70px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 70px;
-    border-bottom: 1px solid rgba(0,240,208,0.1);
 }
 
-.logo {
+header .logo {
     height: 45px;
-    display: block;
+    margin-right: auto;
 }
 
-nav.nav-links {
+.nav-links {
+    flex: 1;
     display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 25px;
 }
 
@@ -150,41 +150,52 @@ nav a:hover::after {
 
 .side-layout {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
     flex-wrap: wrap;
+    padding: 40px 0;
 }
 
 .side-layout .text-side {
-    flex: 1 1 300px;
+    flex: 1 1 350px;
     max-width: 500px;
+    text-align: left;
 }
 
 .side-layout .text-side h2 {
     text-align: left;
+    font-size: 1.8rem;
+    color: var(--brand-color);
+    margin-bottom: 10px;
 }
 
 .side-layout .text-side p {
-    text-align: left;
-    line-height: 1.6;
+    font-size: 1rem;
     color: #ccc;
+    line-height: 1.6;
 }
 
 .side-layout .image-side {
-    flex: 1 1 300px;
+    flex: 1 1 350px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .side-layout .image-side img {
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,240,208,0.3);
-    border: 1px solid rgba(0,240,208,0.1);
+    border: 1px solid rgba(0,240,208,0.2);
+    box-shadow: 0 0 25px rgba(0,240,208,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Try It Now */
+.side-layout .image-side img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(0,240,208,0.5);
+}
+
 .try-it {
     text-align: center;
 }
@@ -316,28 +327,38 @@ pre {
     display: none;
 }
 
-/* Pricing Plans */
+#pricing {
+    text-align: center;
+    padding: 60px 20px;
+}
+
 .pricing-container {
     display: flex;
-    gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .pricing-card {
     background: var(--card-bg);
     border: 1px solid rgba(0,240,208,0.15);
-    box-shadow: 0 0 10px rgba(0,240,208,0.1);
+    box-shadow: 0 0 15px rgba(0,240,208,0.1);
     border-radius: 12px;
-    padding: 20px;
-    width: 260px;
+    padding: 30px 20px;
+    width: 280px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pricing-card.popular {
     border: 2px solid var(--brand-color);
-    box-shadow: 0 0 20px rgba(0,240,208,0.4);
+    box-shadow: 0 0 30px rgba(0,240,208,0.4);
+    transform: scale(1.05);
 }
 
 .pricing-card:hover {
@@ -346,14 +367,16 @@ pre {
 }
 
 .pricing-card .price {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--brand-color);
+    margin-bottom: 15px;
 }
 
 .pricing-card ul {
     list-style: none;
     padding: 0;
-    margin: 10px 0;
+    margin: 0 0 20px 0;
+    text-align: left;
     color: #ccc;
 }
 
@@ -364,18 +387,20 @@ pre {
 .pricing-btn {
     background: var(--brand-color);
     color: #000;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pricing-btn:hover {
-    box-shadow: 0 0 10px var(--brand-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--brand-color);
 }
 
-/* FAQ */
 .faq {
     max-width: 700px;
     margin: auto;
@@ -431,7 +456,6 @@ pre {
     transform: rotate(180deg);
 }
 
-/* Contact */
 .contact-form {
     max-width: 500px;
     margin: auto;
@@ -481,7 +505,6 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hamburger & Mobile */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -545,131 +568,4 @@ footer {
 
 .mobile-menu.show {
     display: flex;
-}
-
-
-
-#pricing {
-    text-align: center;
-}
-
-.pricing-container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    max-width: 1000px;
-    margin: auto;
-    flex-wrap: wrap;
-}
-
-.pricing-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(0,240,208,0.15);
-    box-shadow: 0 0 15px rgba(0,240,208,0.1);
-    border-radius: 12px;
-    padding: 30px 20px;
-    width: 280px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pricing-card h3 {
-    color: #fff;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.pricing-card .price {
-    font-size: 2.2rem;
-    color: var(--brand-color);
-    margin-bottom: 15px;
-}
-
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    text-align: left;
-}
-
-.pricing-card li {
-    color: #ccc;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-}
-
-.pricing-card.popular {
-    border: 2px solid var(--brand-color);
-    box-shadow: 0 0 30px rgba(0,240,208,0.4);
-    transform: scale(1.05);
-}
-
-.pricing-btn {
-    background: var(--brand-color);
-    color: #000;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.pricing-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px var(--brand-color);
-}
-
-
-.side-layout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    padding: 40px 0;
-}
-
-.side-layout .text-side {
-    flex: 1 1 350px;
-    max-width: 500px;
-    text-align: left;
-}
-
-.side-layout .text-side h2 {
-    text-align: left;
-    font-size: 1.8rem;
-    color: var(--brand-color);
-    margin-bottom: 10px;
-}
-
-.side-layout .text-side p {
-    font-size: 1rem;
-    color: #ccc;
-    line-height: 1.6;
-}
-
-.side-layout .image-side {
-    flex: 1 1 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.side-layout .image-side img {
-    max-width: 100%;
-    border-radius: 12px;
-    border: 1px solid rgba(0,240,208,0.2);
-    box-shadow: 0 0 25px rgba(0,240,208,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.side-layout .image-side img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 35px rgba(0,240,208,0.5);
 }
