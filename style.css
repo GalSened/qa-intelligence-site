@@ -350,3 +350,59 @@ body[dir="rtl"] .text-side p,
 body[dir="rtl"] .contact-form {
     text-align: right;
 }
+
+
+
+/* IDE-like Code Container */
+.code-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0,240,208,0.2);
+    overflow: hidden;
+    display: none;
+}
+
+.code-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #2d2d2d;
+    padding: 6px 10px;
+    position: relative;
+}
+
+.code-header .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.code-header .red { background: #ff5f56; }
+.code-header .yellow { background: #ffbd2e; }
+.code-header .green { background: #27c93f; }
+
+.copy-btn {
+    position: absolute;
+    right: 10px;
+    background: var(--brand-color);
+    color: #000;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.copy-btn:hover {
+    box-shadow: 0 0 8px var(--brand-color);
+}
+
+pre {
+    margin: 0;
+    padding: 15px;
+    overflow-x: auto;
+}
