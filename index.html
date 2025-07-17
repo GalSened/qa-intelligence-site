@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QA INTELLIGENCE</title>
+    <title>QA INTELLIGENCE – Cutting Edge</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
 </head>
@@ -15,10 +15,9 @@
     <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#features">Features</a>
-        <a href="#examples">Examples</a>
-        <a href="#architecture">Architecture</a>
         <a href="#dashboard">Dashboard</a>
-        <a href="#try-it">Try It</a>
+        <a href="#automation">Workflow</a>
+        <a href="#try-it">Code Generator</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -31,10 +30,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#home">Home</a>
         <a href="#features">Features</a>
-        <a href="#examples">Examples</a>
-        <a href="#architecture">Architecture</a>
         <a href="#dashboard">Dashboard</a>
-        <a href="#try-it">Try It</a>
+        <a href="#automation">Workflow</a>
+        <a href="#try-it">Code Generator</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -43,10 +41,8 @@
 
 <section class="hero" id="home">
     <div class="hero-content">
-        <h1>QA INTELLIGENCE – The Future of Automated Testing</h1>
-        <p>
-            An intelligent AI system that generates, manages, and executes tests, detects risks, and self-heals failing tests.
-        </p>
+        <h1>QA INTELLIGENCE</h1>
+        <p>The Future of Smart, Self-Healing Automated Testing – Cutting Edge & Intelligent.</p>
         <button class="cta-btn">Start Now</button>
     </div>
 </section>
@@ -54,21 +50,19 @@
 <section id="features" class="gradient-section">
     <h2>Main Features</h2>
     <div class="features">
-        <div class="feature-card"><div class="feature-icon">🤖</div><h3>Smart Test Generation</h3><p>Automatic test generation from code and specs using advanced AI analysis.</p></div>
-        <div class="feature-card"><div class="feature-icon">⚡</div><h3>Parallel Smart Run</h3><p>Automated scheduling with critical area detection and distributed execution.</p></div>
-        <div class="feature-card"><div class="feature-icon">📊</div><h3>Smart Reports & Dashboard</h3><p>Interactive dashboard, Dark Mode, real-time charts, and automatic Excel export.</p></div>
-        <div class="feature-card"><div class="feature-icon">🛠</div><h3>Self-Healing Tests</h3><p>Automatically detects and heals failing tests using self-learning mechanisms.</p></div>
-        <div class="feature-card"><div class="feature-icon">🔗</div><h3>Source Code Integration</h3><p>Seamless integration with GitHub, GitLab, and Bitbucket for real-time code analysis.</p></div>
-        <div class="feature-card"><div class="feature-icon">🧠</div><h3>Smart Risk Classification</h3><p>AI classifies high-risk areas and generates focused tests for better coverage.</p></div>
+        <div class="feature-card"><div class="feature-icon">🤖</div><h3>Smart Test Generation</h3><p>Automatic test generation from specs and code using AI-driven analysis.</p></div>
+        <div class="feature-card"><div class="feature-icon">⚡</div><h3>Parallel Smart Run</h3><p>Runs critical tests in parallel with intelligent risk classification.</p></div>
+        <div class="feature-card"><div class="feature-icon">🛠</div><h3>Self-Healing</h3><p>Fixes failing tests automatically with self-learning algorithms.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔗</div><h3>Source Code Integration</h3><p>Full GitHub, GitLab, and Bitbucket support.</p></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><h3>Advanced Dashboard</h3><p>Real-time reports, charts, and Excel export by modules.</p></div>
+        <div class="feature-card"><div class="feature-icon">🧠</div><h3>Risk-Based Testing</h3><p>AI focuses on high-risk areas for maximum efficiency.</p></div>
     </div>
 </section>
 
 <section id="dashboard" class="side-layout gradient-section">
     <div class="text-side">
         <h2>Dashboard & Reports</h2>
-        <p>
-            QA INTELLIGENCE provides a powerful, real-time dashboard with interactive charts, Dark Mode, and automatic Excel export – organized by modules for maximum clarity.
-        </p>
+        <p>Interactive charts, Dark Mode, Excel export – everything you need to monitor test performance in real-time.</p>
     </div>
     <div class="image-side">
         <img src="mockup-dashboard.png" alt="QA Intelligence Dashboard">
@@ -78,21 +72,25 @@
 <section id="automation" class="side-layout gradient-section">
     <div class="text-side">
         <h2>Automated Workflow</h2>
-        <p>
-            From simple prompts to full test generation, risk analysis, and instant Excel reporting – QA INTELLIGENCE automates the entire testing process with precision and intelligence.
-        </p>
+        <p>From prompt to full test coverage: generate, optimize, and run tests seamlessly across any framework.</p>
     </div>
     <div class="image-side">
-        <img src="mockup-automation.png" alt="QA Intelligence Automated Workflow">
+        <img src="mockup-automation.png" alt="QA Intelligence Workflow">
     </div>
 </section>
 
 <section id="try-it" class="try-it gradient-section">
-    <h2>Try It Now</h2>
-    <p class="center-text">Type a simple prompt and watch QA INTELLIGENCE simulate Pytest code generation in real-time.</p>
+    <h2>Cutting-Edge Code Generator</h2>
+    <p class="center-text">Choose your language, type a prompt, and watch "magic" generate optimized, clean test code.</p>
     <div class="try-container">
-        <input type="text" id="promptInput" placeholder="e.g., Generate tests for login API">
-        <button id="generateBtn">Generate</button>
+        <select id="languageSelect">
+            <option value="python">Python (pytest)</option>
+            <option value="java">Java (JUnit)</option>
+            <option value="javascript">JavaScript (Jest)</option>
+            <option value="csharp">C# (NUnit)</option>
+        </select>
+        <input type="text" id="promptInput" placeholder="e.g., Login API test with valid credentials">
+        <button id="generateBtn">Generate Code</button>
         <div class="progress-bar"><div class="progress" id="progress"></div></div>
         <div class="terminal live-terminal" id="liveTerminal"></div>
         <div class="code-wrapper" id="codeWrapper">
@@ -104,6 +102,7 @@
         </div>
         <button id="runTestsBtn" class="run-tests-btn">Run Tests</button>
         <div class="run-results" id="runResults"></div>
+        <div class="optimization-suggestions" id="optimizationSuggestions"></div>
     </div>
 </section>
 
@@ -148,7 +147,7 @@
     <div class="faq">
         <div class="faq-item">
             <button class="faq-question"><span>What is QA INTELLIGENCE?</span><span class="arrow">▼</span></button>
-            <div class="faq-answer">QA INTELLIGENCE is an AI-driven testing platform that generates, manages, and executes tests automatically.</div>
+            <div class="faq-answer">QA INTELLIGENCE is an AI-driven testing platform that generates, optimizes, and executes tests automatically.</div>
         </div>
         <div class="faq-item">
             <button class="faq-question"><span>Can it integrate with GitHub/GitLab?</span><span class="arrow">▼</span></button>
