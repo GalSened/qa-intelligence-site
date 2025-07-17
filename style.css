@@ -337,17 +337,19 @@ pre {
     justify-content: center;
     align-items: stretch;
     gap: 30px;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
+    flex-wrap: nowrap; /* לא ישבור שורה במסכים רחבים */
 }
 
 .pricing-card {
+    flex: 0 0 300px; /* כרטיס ברוחב קבוע */
+    max-width: 300px;
     background: var(--card-bg);
     border: 1px solid rgba(0,240,208,0.15);
     box-shadow: 0 0 15px rgba(0,240,208,0.1);
     border-radius: 12px;
     padding: 30px 20px;
-    width: 280px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -361,40 +363,12 @@ pre {
     transform: scale(1.05);
 }
 
-.pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(0,240,208,0.4);
+@media (max-width: 1000px) {
+    .pricing-container {
+        flex-wrap: wrap; /* במסכים קטנים נשבר לשתי שורות */
+    }
 }
 
-.pricing-card .price {
-    font-size: 2.2rem;
-    color: var(--brand-color);
-    margin-bottom: 15px;
-}
-
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    text-align: left;
-    color: #ccc;
-}
-
-.pricing-card li {
-    margin-bottom: 6px;
-}
-
-.pricing-btn {
-    background: var(--brand-color);
-    color: #000;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
 .pricing-btn:hover {
     transform: scale(1.05);
