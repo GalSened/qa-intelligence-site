@@ -1,4 +1,4 @@
-// אנימציית הופעת היכולות
+// Feature Cards Animation
 const featureCards = document.querySelectorAll('.feature-card');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -9,13 +9,13 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 featureCards.forEach(card => observer.observe(card));
 
-// מתג שפה
+// Language Toggle (default: English)
 const langToggle = document.getElementById('lang-toggle');
 langToggle.addEventListener('click', () => {
-    const isEnglish = langToggle.textContent === 'EN';
-    document.querySelectorAll('[data-he]').forEach(el => {
-        el.textContent = isEnglish ? el.dataset.en : el.dataset.he;
+    const isHebrew = langToggle.textContent === 'HE';
+    document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = isHebrew ? el.dataset.he : el.dataset.en;
     });
-    document.body.setAttribute('dir', isEnglish ? 'ltr' : 'rtl');
-    langToggle.textContent = isEnglish ? 'HE' : 'EN';
+    document.body.setAttribute('dir', isHebrew ? 'rtl' : 'ltr');
+    langToggle.textContent = isHebrew ? 'EN' : 'HE';
 });
