@@ -177,3 +177,13 @@ runTestsBtn.addEventListener('click', () => {
         }
     }, 1500);
 });
+// ===============================
+// Features Animation (appear on load)
+// ===============================
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.feature-card').forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add('visible');
+        }, index * 150);
+    });
+});
